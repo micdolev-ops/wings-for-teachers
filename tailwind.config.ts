@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         assistant: ["Assistant", "sans-serif"],
+        handwriting: ["Caveat", "cursive"],
       },
       colors: {
         border: "hsl(var(--border))",
