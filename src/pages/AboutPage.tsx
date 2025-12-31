@@ -23,7 +23,7 @@ const AboutPage = () => {
                     <img
                       src={michalProfile}
                       alt="מיכל אלגרבלי"
-                      className="w-full h-full object-cover object-top scale-110"
+                      className="w-full h-full object-cover object-[30%_top] scale-125"
                     />
                   </div>
                 </div>
