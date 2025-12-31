@@ -2,10 +2,8 @@ import Layout from "@/components/Layout";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import TypewriterText from "@/components/TypewriterText";
 import michalProfile from "@/assets/michal-profile.jpg";
-
 const AboutPage = () => {
-  return (
-    <Layout>
+  return <Layout>
       <section className="py-16 md:py-24 min-h-[80vh]">
         <div className="container mx-auto px-4 md:px-6">
           <ScrollAnimation>
@@ -20,11 +18,7 @@ const AboutPage = () => {
                 {/* Profile Image */}
                 <div className="shrink-0">
                   <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden ring-4 ring-primary/20 shadow-glow">
-                    <img
-                      src={michalProfile}
-                      alt="מיכל אלגרבלי"
-                      className="w-full h-full object-cover object-[30%_top] scale-125"
-                    />
+                    <img alt="מיכל אלגרבלי" className="w-full h-full object-cover object-[30%_top] scale-125" src="/lovable-uploads/c307073f-5384-4929-a8c5-fc9cd7b7229c.png" />
                   </div>
                 </div>
 
@@ -65,8 +59,6 @@ const AboutPage = () => {
           </ScrollAnimation>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default AboutPage;
