@@ -13,9 +13,10 @@ interface ToolCardProps {
 const ToolCard = ({ title, description, icon: Icon, delay }: ToolCardProps) => (
   <div
     className={cn(
-      "group relative p-6 rounded-2xl bg-card border border-border/50",
-      "shadow-soft hover:shadow-glow transition-all duration-300",
-      "hover:scale-[1.02] hover:-translate-y-1",
+      "group relative p-6 rounded-2xl",
+      "bg-[hsl(320_70%_55%_/_0.18)] backdrop-blur-md border border-[hsl(320_70%_55%_/_0.3)]",
+      "shadow-soft hover:shadow-[0_8px_32px_-4px_hsl(320_70%_55%_/_0.35)] transition-all duration-300",
+      "hover:scale-[1.02] hover:-translate-y-1 hover:bg-[hsl(320_70%_55%_/_0.25)]",
       "opacity-0 animate-fade-in-up cursor-pointer"
     )}
     style={{ animationDelay: `${delay}ms`, animationFillMode: "forwards" }}
@@ -41,7 +42,7 @@ const CanvaPage = () => {
     { title: "טקסט לתמונה", description: "יצירת תמונות מקוריות מתיאור טקסטואלי", icon: Image },
     { title: "מצגות עם Canva AI", description: "בניית מצגות חכמות בלחיצת כפתור", icon: Presentation },
     { title: "מסמכים חכמים", description: "יצירת מסמכים מעוצבים עם AI", icon: FileText },
-    { title: "תפסים ויזואליים", description: "עיצוב תפסים שמושכים את העין", icon: LayoutGrid },
+    { title: "טפסים ויזואליים", description: "עיצוב טפסים שמושכים את העין", icon: LayoutGrid },
     { title: "תעודות אינטראקטיביות", description: "יצירת תעודות הוקרה מרשימות", icon: Award },
     { title: "כל אפשרויות Canva AI", description: "סקירה מקיפה של כלי ה-AI בקאנבה", icon: Sparkles },
   ];

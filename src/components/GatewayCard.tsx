@@ -17,10 +17,10 @@ const GatewayCard = ({ title, description, icon: Icon, to, variant, delay = 0 }:
       to={to}
       className={cn(
         "group relative flex flex-col items-center justify-center p-8 md:p-12 rounded-3xl",
-        "bg-secondary/12 backdrop-blur-xl border border-secondary/20",
-        "shadow-card hover:shadow-glow",
+        "bg-[hsl(320_70%_55%_/_0.15)] backdrop-blur-xl border border-[hsl(320_70%_55%_/_0.25)]",
+        "shadow-card hover:shadow-[0_16px_48px_-8px_hsl(320_70%_55%_/_0.4)]",
         "transition-all duration-500 ease-out",
-        "hover:scale-[1.02] hover:-translate-y-2 hover:bg-secondary/16",
+        "hover:scale-[1.02] hover:-translate-y-2 hover:bg-[hsl(320_70%_55%_/_0.22)]",
         "opacity-0 animate-fade-in-up",
         "overflow-hidden"
       )}
