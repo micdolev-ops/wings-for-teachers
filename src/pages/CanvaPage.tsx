@@ -92,7 +92,7 @@ const CanvaPage = () => {
       </section>
 
       {/* Section 1: Magic Studio */}
-      <section className="py-12 md:py-16">
+      <section className="py-6 md:py-8">
         <div className="container mx-auto px-4 md:px-6">
           <div 
             className="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-primary/5 via-card to-secondary/5 border border-border/50 shadow-card opacity-0 animate-fade-in-up"
