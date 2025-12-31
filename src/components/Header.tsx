@@ -24,7 +24,7 @@ const Header = () => {
             <img 
               src={logo} 
               alt="בינה יתרה" 
-              className="w-14 h-14 md:w-20 md:h-20 object-contain drop-shadow-lg group-hover:scale-105 transition-transform duration-300"
+              className="w-16 h-16 md:w-24 md:h-24 object-contain brightness-0 invert drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-105 transition-transform duration-300"
             />
             <span className="text-2xl md:text-3xl font-bold gradient-text">בינה יתרה</span>
           </Link>
