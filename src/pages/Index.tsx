@@ -1,7 +1,6 @@
 import { Palette, Bot } from "lucide-react";
 import GatewayCard from "@/components/GatewayCard";
 import Layout from "@/components/Layout";
-import logo from "@/assets/logo.jpg";
 
 const Index = () => {
   return (
@@ -29,19 +28,7 @@ const Index = () => {
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
-          {/* Logo */}
-          <div 
-            className="mb-6 opacity-0 animate-fade-in"
-            style={{ animationDelay: "50ms", animationFillMode: "forwards" }}
-          >
-            <img 
-              src={logo} 
-              alt="בינה יתרה - לוגו" 
-              className="w-32 h-32 md:w-40 md:h-40 mx-auto object-contain rounded-2xl shadow-glow"
-            />
-          </div>
-          
-          <h1 
+          <h1
             className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 opacity-0 animate-fade-in"
             style={{ animationDelay: "150ms", animationFillMode: "forwards" }}
           >
