@@ -122,7 +122,7 @@ const CanvaPage = () => {
                   סקירה מקיפה של כל היכולות והאפשרויות של סטודיו הקסם
                 </p>
               </div>
-              <div className="p-6 rounded-2xl bg-card/80 border border-secondary-glow">
+              <div className="p-6 rounded-2xl bg-card/80 border border-secondary-glow border-double">
                 <h3 className="font-bold text-foreground mb-2">הדרכה מעשית</h3>
                 <p className="text-sm text-muted-foreground">
                   דוגמאות פדגוגיות ליישום בכיתה עם צעדים מפורטים
