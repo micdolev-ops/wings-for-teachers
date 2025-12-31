@@ -16,11 +16,11 @@ const GatewayCard = ({ title, description, icon: Icon, to, variant, delay = 0 }:
     <Link
       to={to}
       className={cn(
-        "group relative flex flex-col items-center justify-center p-8 md:p-12 rounded-2xl",
-        "bg-card border border-border/50",
-        "shadow-card hover:shadow-glow",
+        "group relative flex flex-col items-center justify-center p-8 md:p-12 rounded-3xl",
+        "bg-white/10 backdrop-blur-xl border border-white/20",
+        "shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] hover:shadow-[0_16px_48px_0_rgba(175,70,255,0.25)]",
         "transition-all duration-500 ease-out",
-        "hover:scale-[1.02] hover:-translate-y-2",
+        "hover:scale-[1.02] hover:-translate-y-2 hover:bg-white/15",
         "opacity-0 animate-fade-in-up",
         "overflow-hidden"
       )}
