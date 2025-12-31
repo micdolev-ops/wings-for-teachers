@@ -2,6 +2,7 @@ import { Palette, Bot } from "lucide-react";
 import GatewayCard from "@/components/GatewayCard";
 import Layout from "@/components/Layout";
 import TypewriterText from "@/components/TypewriterText";
+import logo from "@/assets/logo.svg";
 
 const Index = () => {
   return (
@@ -47,6 +48,18 @@ const Index = () => {
               showCursor={true}
             />
           </p>
+        </div>
+      </section>
+
+      {/* Logo Section */}
+      <section className="py-8 md:py-12">
+        <div className="flex justify-center">
+          <img 
+            src={logo} 
+            alt="בינה יתרה לוגו" 
+            className="w-32 h-32 md:w-40 md:h-40 rounded-full drop-shadow-lg opacity-0 animate-fade-in"
+            style={{ animationDelay: "600ms", animationFillMode: "forwards" }}
+          />
         </div>
       </section>
 
