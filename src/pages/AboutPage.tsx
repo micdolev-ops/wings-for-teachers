@@ -9,7 +9,7 @@ const AboutPage = () => {
       <section className="py-16 md:py-24 min-h-[80vh]">
         <div className="container mx-auto px-4 md:px-6">
           <ScrollAnimation>
-            <h1 className="text-4xl md:text-5xl font-bold text-center mb-12">
+            <h1 className="text-4xl md:text-6xl font-handwriting font-bold text-center mb-12">
               <span className="gradient-text">קצת עליי</span>
             </h1>
           </ScrollAnimation>
@@ -34,10 +34,10 @@ const AboutPage = () => {
                     <TypewriterText text="נעים מאוד," speed={100} delay={300} showCursor={false} />
                   </h2>
                   <h2 className="text-4xl md:text-5xl font-handwriting font-bold text-foreground mb-2">
-                    <TypewriterText text="אני" speed={100} delay={1200} showCursor={false} />
+                    <TypewriterText text="אני" speed={100} delay={1500} showCursor={false} />
                   </h2>
                   <h2 className="text-4xl md:text-5xl font-handwriting font-bold gradient-text mb-6">
-                    <TypewriterText text="מיכל אלגרבלי" speed={100} delay={1600} showCursor={true} />
+                    <TypewriterText text="מיכל אלגרבלי" speed={100} delay={2000} showCursor={true} />
                   </h2>
                   <div className="space-y-5 text-muted-foreground leading-relaxed">
                     <p>
