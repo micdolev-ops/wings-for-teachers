@@ -42,7 +42,7 @@ const Index = () => {
           >
             <TypewriterText
               text="טכנולוגיה טובה לא מחליפה מורים, היא מעניקה להם כנפיים."
-              speed={40}
+              speed={80}
               delay={800}
               showCursor={true}
             />
