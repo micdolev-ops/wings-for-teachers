@@ -17,10 +17,10 @@ const GatewayCard = ({ title, description, icon: Icon, to, variant, delay = 0 }:
       to={to}
       className={cn(
         "group relative flex flex-col items-center justify-center p-8 md:p-12 rounded-3xl",
-        "bg-[hsl(320_70%_55%_/_0.15)] backdrop-blur-xl border border-[hsl(320_70%_55%_/_0.25)]",
-        "shadow-card hover:shadow-[0_16px_48px_-8px_hsl(320_70%_55%_/_0.4)]",
+        "bg-[hsl(280_50%_25%_/_0.45)] backdrop-blur-xl border border-[hsl(320_70%_60%_/_0.4)]",
+        "shadow-[0_8px_32px_-8px_hsl(320_70%_55%_/_0.35)] hover:shadow-[0_20px_60px_-12px_hsl(320_70%_55%_/_0.55)]",
         "transition-all duration-500 ease-out",
-        "hover:scale-[1.02] hover:-translate-y-2 hover:bg-[hsl(320_70%_55%_/_0.22)]",
+        "hover:scale-[1.02] hover:-translate-y-2 hover:bg-[hsl(280_50%_25%_/_0.6)]",
         "opacity-0 animate-fade-in-up",
         "overflow-hidden"
       )}
@@ -56,11 +56,11 @@ const GatewayCard = ({ title, description, icon: Icon, to, variant, delay = 0 }:
           "relative z-10 flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-2xl mb-6",
           "transition-all duration-500 group-hover:scale-110",
           variant === "canva"
-            ? "bg-gradient-to-br from-primary to-primary-glow shadow-[0_8px_30px_-8px_hsl(175_70%_50%_/_0.4)]"
-            : "bg-gradient-to-br from-secondary to-secondary-glow shadow-[0_8px_30px_-8px_hsl(270_60%_55%_/_0.4)]"
+            ? "bg-gradient-to-br from-primary to-primary-glow shadow-[0_0_35px_10px_hsl(320_70%_55%_/_0.5)]"
+            : "bg-gradient-to-br from-secondary to-secondary-glow shadow-[0_0_35px_10px_hsl(320_70%_55%_/_0.5)]"
         )}
       >
-        <Icon className="w-10 h-10 md:w-12 md:h-12 text-foreground" strokeWidth={1.5} />
+        <Icon className="w-10 h-10 md:w-12 md:h-12 text-white drop-shadow-[0_0_10px_hsl(320_70%_60%_/_0.9)]" strokeWidth={1.5} />
       </div>
 
       {/* Text content */}

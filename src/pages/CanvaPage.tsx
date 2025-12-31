@@ -14,16 +14,16 @@ const ToolCard = ({ title, description, icon: Icon, delay }: ToolCardProps) => (
   <div
     className={cn(
       "group relative p-6 rounded-2xl",
-      "bg-[hsl(320_70%_55%_/_0.18)] backdrop-blur-md border border-[hsl(320_70%_55%_/_0.3)]",
-      "shadow-soft hover:shadow-[0_8px_32px_-4px_hsl(320_70%_55%_/_0.35)] transition-all duration-300",
-      "hover:scale-[1.02] hover:-translate-y-1 hover:bg-[hsl(320_70%_55%_/_0.25)]",
+      "bg-[hsl(280_50%_25%_/_0.4)] backdrop-blur-xl border border-[hsl(320_70%_60%_/_0.35)]",
+      "shadow-[0_8px_32px_-4px_hsl(320_70%_55%_/_0.3)] hover:shadow-[0_12px_40px_-4px_hsl(320_70%_55%_/_0.45)] transition-all duration-300",
+      "hover:scale-[1.02] hover:-translate-y-1 hover:bg-[hsl(280_50%_25%_/_0.55)]",
       "opacity-0 animate-fade-in-up cursor-pointer"
     )}
     style={{ animationDelay: `${delay}ms`, animationFillMode: "forwards" }}
   >
     <div className="flex items-start gap-4">
-      <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-glow shadow-soft">
-        <Icon className="w-6 h-6 text-primary-foreground" />
+      <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-glow shadow-[0_0_25px_6px_hsl(320_70%_55%_/_0.5)]">
+        <Icon className="w-6 h-6 text-white drop-shadow-[0_0_8px_hsl(320_70%_60%_/_0.8)]" />
       </div>
       <div className="flex-1">
         <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">

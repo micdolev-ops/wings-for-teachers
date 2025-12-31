@@ -13,9 +13,11 @@ interface PlatformCardProps {
 const PlatformCard = ({ title, description, icon: Icon, delay }: PlatformCardProps) => (
   <div
     className={cn(
-      "group relative p-8 rounded-2xl bg-card border border-border/50",
-      "shadow-card hover:shadow-glow transition-all duration-500",
-      "hover:scale-[1.02] hover:-translate-y-2",
+      "group relative p-8 rounded-2xl",
+      "bg-[hsl(280_50%_25%_/_0.4)] backdrop-blur-xl border border-[hsl(320_70%_60%_/_0.35)]",
+      "shadow-[0_8px_32px_-8px_hsl(320_70%_55%_/_0.3)] hover:shadow-[0_16px_48px_-8px_hsl(320_70%_55%_/_0.5)]",
+      "transition-all duration-500",
+      "hover:scale-[1.02] hover:-translate-y-2 hover:bg-[hsl(280_50%_25%_/_0.55)]",
       "opacity-0 animate-fade-in-up cursor-pointer"
     )}
     style={{ animationDelay: `${delay}ms`, animationFillMode: "forwards" }}
@@ -24,8 +26,8 @@ const PlatformCard = ({ title, description, icon: Icon, delay }: PlatformCardPro
     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-secondary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     
     <div className="relative z-10">
-      <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary to-secondary-glow shadow-[0_8px_30px_-8px_hsl(330_70%_55%_/_0.4)] mb-6">
-        <Icon className="w-8 h-8 text-secondary-foreground" />
+      <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary to-secondary-glow shadow-[0_0_30px_8px_hsl(320_70%_55%_/_0.5)] mb-6">
+        <Icon className="w-8 h-8 text-white drop-shadow-[0_0_8px_hsl(320_70%_60%_/_0.8)]" />
       </div>
       <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">
         {title}
@@ -124,10 +126,10 @@ const AIPage = () => {
               {promptTips.map((tip, index) => (
                 <div 
                   key={tip.title}
-                  className="p-6 rounded-2xl bg-card/80 border border-border/30 opacity-0 animate-fade-in-up"
+                  className="p-6 rounded-2xl bg-[hsl(280_50%_25%_/_0.4)] backdrop-blur-xl border border-[hsl(320_70%_60%_/_0.35)] opacity-0 animate-fade-in-up"
                   style={{ animationDelay: `${600 + index * 100}ms`, animationFillMode: "forwards" }}
                 >
-                  <tip.icon className="w-6 h-6 text-secondary mb-3" />
+                  <tip.icon className="w-6 h-6 text-[hsl(320_70%_60%)] drop-shadow-[0_0_12px_hsl(320_70%_55%_/_0.8)] mb-3" />
                   <h3 className="font-bold text-foreground mb-2">{tip.title}</h3>
                   <p className="text-sm text-muted-foreground">{tip.description}</p>
                 </div>

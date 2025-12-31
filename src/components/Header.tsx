@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
-import logo from "@/assets/logo.svg";
+import logoWithBg from "@/assets/logo-with-bg.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,9 +22,9 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-4 group flex-row-reverse">
             <img
-              src={logo}
+              src={logoWithBg}
               alt="בינה יתרה - לוגו"
-              className="w-28 h-28 md:w-44 md:h-44 object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.35)] group-hover:scale-[1.02] transition-transform duration-300"
+              className="w-20 h-20 md:w-28 md:h-28 object-contain drop-shadow-[0_4px_20px_rgba(0,0,0,0.3)] group-hover:scale-[1.02] transition-transform duration-300 rounded-full"
             />
             <span className="text-2xl md:text-3xl font-bold gradient-text">בינה יתרה</span>
           </Link>
