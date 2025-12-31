@@ -1,7 +1,8 @@
 import Layout from "@/components/Layout";
-import { Palette, Sparkles, FileText, Image, Presentation, Award, LayoutGrid, ArrowLeft } from "lucide-react";
+import { Sparkles, FileText, Image, Presentation, Award, LayoutGrid, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import canvaLogo from "@/assets/canva-logo.svg";
 
 interface ToolCardProps {
   title: string;
@@ -71,7 +72,7 @@ const CanvaPage = () => {
               className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow shadow-glow opacity-0 animate-scale-in"
               style={{ animationDelay: "200ms", animationFillMode: "forwards" }}
             >
-              <Palette className="w-8 h-8 text-primary-foreground" />
+              <img src={canvaLogo} alt="Canva" className="w-12 h-12 object-contain rounded-lg" />
             </div>
             <h1 
               className="text-4xl md:text-5xl font-extrabold opacity-0 animate-fade-in"

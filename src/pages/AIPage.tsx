@@ -1,16 +1,19 @@
 import Layout from "@/components/Layout";
-import { Bot, MessageSquare, Lightbulb, AlertCircle, BookOpen, Sparkles, ArrowLeft } from "lucide-react";
+import { Bot, MessageSquare, Lightbulb, AlertCircle, ArrowLeft, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import notebookLmLogo from "@/assets/notebooklm-logo.svg";
+import geminiLogo from "@/assets/gemini-logo.svg";
 
 interface PlatformCardProps {
   title: string;
   description: string;
-  icon: React.ElementType;
+  icon?: React.ElementType;
+  iconImage?: string;
   delay: number;
 }
 
-const PlatformCard = ({ title, description, icon: Icon, delay }: PlatformCardProps) => (
+const PlatformCard = ({ title, description, icon: Icon, iconImage, delay }: PlatformCardProps) => (
   <div
     className={cn(
       "group relative p-8 rounded-2xl",
@@ -26,8 +29,12 @@ const PlatformCard = ({ title, description, icon: Icon, delay }: PlatformCardPro
     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-secondary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     
     <div className="relative z-10">
-      <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary to-secondary-glow shadow-[0_0_30px_8px_hsl(320_70%_55%_/_0.5)] mb-6">
-        <Icon className="w-8 h-8 text-white drop-shadow-[0_0_8px_hsl(320_70%_60%_/_0.8)]" />
+      <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-white shadow-[0_0_30px_8px_hsl(320_70%_55%_/_0.3)] mb-6">
+        {iconImage ? (
+          <img src={iconImage} alt={title} className="w-12 h-12 object-contain" />
+        ) : Icon ? (
+          <Icon className="w-8 h-8 text-secondary" />
+        ) : null}
       </div>
       <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">
         {title}
@@ -54,12 +61,12 @@ const AIPage = () => {
     {
       title: "NotebookLM",
       description: "כלי מחקר ולמידה מבוסס AI של גוגל שמאפשר לנתח מסמכים וליצור תוכן חכם",
-      icon: BookOpen,
+      iconImage: notebookLmLogo,
     },
     {
       title: "Gemini",
       description: "מודל השפה המתקדם של גוגל לשיחות, יצירת תוכן וניתוח מידע מורכב",
-      icon: Sparkles,
+      iconImage: geminiLogo,
     },
   ];
 
@@ -176,7 +183,7 @@ const AIPage = () => {
                 key={platform.title}
                 title={platform.title}
                 description={platform.description}
-                icon={platform.icon}
+                iconImage={platform.iconImage}
                 delay={1200 + index * 150}
               />
             ))}
