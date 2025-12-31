@@ -1,6 +1,7 @@
 import { Palette, Bot } from "lucide-react";
 import GatewayCard from "@/components/GatewayCard";
 import Layout from "@/components/Layout";
+import logo from "@/assets/logo.svg";
 
 const Index = () => {
   return (
@@ -15,7 +16,7 @@ const Index = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-40"
         >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+          <source src={`/videos/hero-bg.mp4?v=${Date.now()}`} type="video/mp4" />
         </video>
         
         {/* Gradient overlay */}
@@ -28,6 +29,18 @@ const Index = () => {
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
+          {/* Logo */}
+          <div 
+            className="mb-8 opacity-0 animate-fade-in"
+            style={{ animationDelay: "50ms", animationFillMode: "forwards" }}
+          >
+            <img 
+              src={logo} 
+              alt="בינה יתרה - לוגו" 
+              className="w-28 h-28 md:w-36 md:h-36 mx-auto object-contain drop-shadow-2xl"
+            />
+          </div>
+          
           <h1
             className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 opacity-0 animate-fade-in"
             style={{ animationDelay: "150ms", animationFillMode: "forwards" }}
