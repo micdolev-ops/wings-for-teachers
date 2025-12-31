@@ -1,38 +1,56 @@
 import { Palette, Bot } from "lucide-react";
 import GatewayCard from "@/components/GatewayCard";
 import Layout from "@/components/Layout";
-import heroBg from "@/assets/hero-bg.jpg";
+import logo from "@/assets/logo.jpg";
 
 const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: `url(${heroBg})` }}
-        />
+        {/* Video Background */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
         
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
         
-        {/* Decorative elements */}
-        <div className="absolute top-20 right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse-soft" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-secondary/10 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: "1s" }} />
+        {/* Decorative glowing elements */}
+        <div className="absolute top-20 right-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse-soft" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-secondary/20 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: "2s" }} />
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
+          {/* Logo */}
+          <div 
+            className="mb-6 opacity-0 animate-fade-in"
+            style={{ animationDelay: "50ms", animationFillMode: "forwards" }}
+          >
+            <img 
+              src={logo} 
+              alt="בינה יתרה - לוגו" 
+              className="w-32 h-32 md:w-40 md:h-40 mx-auto object-contain rounded-2xl shadow-glow"
+            />
+          </div>
+          
           <h1 
             className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 opacity-0 animate-fade-in"
-            style={{ animationDelay: "100ms", animationFillMode: "forwards" }}
+            style={{ animationDelay: "150ms", animationFillMode: "forwards" }}
           >
             <span className="gradient-text">בינה יתרה</span>
           </h1>
           
           <p 
             className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-in"
-            style={{ animationDelay: "300ms", animationFillMode: "forwards" }}
+            style={{ animationDelay: "350ms", animationFillMode: "forwards" }}
           >
             טכנולוגיה טובה לא מחליפה מורים,
             <br className="hidden md:block" />

@@ -56,11 +56,11 @@ const GatewayCard = ({ title, description, icon: Icon, to, variant, delay = 0 }:
           "relative z-10 flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-2xl mb-6",
           "transition-all duration-500 group-hover:scale-110",
           variant === "canva"
-            ? "bg-gradient-to-br from-primary to-primary-glow shadow-[0_8px_30px_-8px_hsl(270_70%_50%_/_0.4)]"
-            : "bg-gradient-to-br from-secondary to-secondary-glow shadow-[0_8px_30px_-8px_hsl(330_70%_55%_/_0.4)]"
+            ? "bg-gradient-to-br from-primary to-primary-glow shadow-[0_8px_30px_-8px_hsl(175_70%_50%_/_0.4)]"
+            : "bg-gradient-to-br from-secondary to-secondary-glow shadow-[0_8px_30px_-8px_hsl(270_60%_55%_/_0.4)]"
         )}
       >
-        <Icon className="w-10 h-10 md:w-12 md:h-12 text-primary-foreground" strokeWidth={1.5} />
+        <Icon className="w-10 h-10 md:w-12 md:h-12 text-foreground" strokeWidth={1.5} />
       </div>
 
       {/* Text content */}
