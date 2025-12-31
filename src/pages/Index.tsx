@@ -1,6 +1,7 @@
 import { Palette, Bot } from "lucide-react";
 import GatewayCard from "@/components/GatewayCard";
 import Layout from "@/components/Layout";
+import TypewriterText from "@/components/TypewriterText";
 
 const Index = () => {
   return (
@@ -39,9 +40,12 @@ const Index = () => {
             className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-in"
             style={{ animationDelay: "350ms", animationFillMode: "forwards" }}
           >
-            טכנולוגיה טובה לא מחליפה מורים,
-            <br className="hidden md:block" />
-            <span className="text-foreground font-medium"> היא מעניקה להם כנפיים.</span>
+            <TypewriterText
+              text="טכנולוגיה טובה לא מחליפה מורים, היא מעניקה להם כנפיים."
+              speed={40}
+              delay={800}
+              showCursor={true}
+            />
           </p>
         </div>
       </section>

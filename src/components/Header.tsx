@@ -13,6 +13,8 @@ const Header = () => {
     { label: "בית", href: "/" },
     { label: "Canva להוראה", href: "/canva" },
     { label: "בינה מלאכותית", href: "/ai" },
+    { label: "אודות", href: "/about" },
+    { label: "צור קשר", href: "/contact" },
   ];
 
   return (
