@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import ScrollAnimation from "@/components/ScrollAnimation";
+import TypewriterText from "@/components/TypewriterText";
 import michalProfile from "@/assets/michal-profile.jpg";
 
 const AboutPage = () => {
@@ -22,16 +23,22 @@ const AboutPage = () => {
                     <img
                       src={michalProfile}
                       alt="מיכל אלגרבלי"
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-full object-cover object-top scale-110"
                     />
                   </div>
                 </div>
 
                 {/* Bio Text */}
                 <div className="text-center md:text-right flex-1">
-                  <h2 className="text-4xl md:text-5xl font-handwriting font-bold text-foreground mb-1">נעים מאוד,</h2>
-                  <h2 className="text-4xl md:text-5xl font-handwriting font-bold text-foreground mb-2">אני</h2>
-                  <h2 className="text-4xl md:text-5xl font-handwriting font-bold gradient-text mb-6">מיכל אלגרבלי</h2>
+                  <h2 className="text-4xl md:text-5xl font-handwriting font-bold text-foreground mb-1">
+                    <TypewriterText text="נעים מאוד," speed={100} delay={300} showCursor={false} />
+                  </h2>
+                  <h2 className="text-4xl md:text-5xl font-handwriting font-bold text-foreground mb-2">
+                    <TypewriterText text="אני" speed={100} delay={1200} showCursor={false} />
+                  </h2>
+                  <h2 className="text-4xl md:text-5xl font-handwriting font-bold gradient-text mb-6">
+                    <TypewriterText text="מיכל אלגרבלי" speed={100} delay={1600} showCursor={true} />
+                  </h2>
                   <div className="space-y-5 text-muted-foreground leading-relaxed">
                     <p>
                       מלווה מורים במסע אל עולם של יצירתיות, טכנולוגיה והוראה משמעותית. לאורך השנים לימדתי תלמידים, הדרכתי סטודנטים, וכיום אני מתמקדת בהנחיית השתלמויות ביישומי Canva ובכלי בינה מלאכותית (AI) להוראה.

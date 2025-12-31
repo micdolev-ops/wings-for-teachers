@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 interface TypewriterTextProps {
   text: string;
-  speed?: number;
+  speed?: number; // default 80ms per character
   delay?: number;
   showCursor?: boolean;
   className?: string;
@@ -11,7 +11,7 @@ interface TypewriterTextProps {
 
 const TypewriterText = ({
   text,
-  speed = 50,
+  speed = 80,
   delay = 0,
   showCursor = true,
   className = "",
@@ -46,9 +46,21 @@ const TypewriterText = ({
 
   return (
     <span className={className}>
-      {displayedText}
+      {displayedText.split('').map((char, index) => (
+        <span
+          key={index}
+          className="inline-block opacity-0 animate-fade-in"
+          style={{ 
+            animationDelay: `${index * 20}ms`,
+            animationDuration: '150ms',
+            animationFillMode: 'forwards'
+          }}
+        >
+          {char === ' ' ? '\u00A0' : char}
+        </span>
+      ))}
       {showCursor && !isComplete && (
-        <span className="inline-block w-[3px] h-[1em] bg-primary mr-1 animate-blink align-middle" />
+        <span className="inline-block w-[3px] h-[1em] bg-primary mr-1 animate-blink align-middle transition-opacity duration-300" />
       )}
     </span>
   );

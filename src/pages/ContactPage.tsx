@@ -25,7 +25,7 @@ const ContactPage = () => {
                   <img
                     src={michalProfile}
                     alt="מיכל אלגרבלי"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top scale-110"
                   />
                 </div>
                 <h2 className="text-2xl font-bold text-foreground mb-2">מיכל אלגרבלי</h2>
