@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-  <rect width="48" height="48" rx="10" fill="white"/>
+  <rect width="48" height="48" rx="12" fill="white"/>
+  <!-- Black circle -->
   <circle cx="24" cy="24" r="14" fill="#1A1A1A"/>
-  <path d="M18 24C18 24 19.5 20 24 20C28.5 20 30 24 30 24" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
-  <path d="M15 24C15 24 18 17 24 17C30 17 33 24 33 24" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
-  <path d="M12 24C12 24 16 14 24 14C32 14 36 24 36 24" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <!-- Audio wave arcs - 3 curved lines radiating from center-left -->
+  <path d="M20 18 Q26 21 26 24 Q26 27 20 30" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M17 14 Q27 18 27 24 Q27 30 17 34" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M14 10 Q28 16 28 24 Q28 32 14 38" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
 </svg>

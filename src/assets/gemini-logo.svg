@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-  <rect width="48" height="48" rx="10" fill="white"/>
+  <rect width="48" height="48" rx="12" fill="white"/>
   <defs>
-    <linearGradient id="geminiGradient" x1="24" y1="6" x2="24" y2="42" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#4285F4"/>
-      <stop offset="25%" stop-color="#34A853"/>
-      <stop offset="50%" stop-color="#FBBC05"/>
-      <stop offset="75%" stop-color="#EA4335"/>
-      <stop offset="100%" stop-color="#4285F4"/>
+    <linearGradient id="geminiGradient1" x1="24" y1="8" x2="24" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1BA1E3"/>
+      <stop offset="25%" stop-color="#5489D6"/>
+      <stop offset="50%" stop-color="#9B72CB"/>
+      <stop offset="75%" stop-color="#D96570"/>
+      <stop offset="100%" stop-color="#F49C46"/>
     </linearGradient>
   </defs>
-  <path d="M24 6C24 6 26 18 26 24C26 30 24 42 24 42C24 42 22 30 22 24C22 18 24 6 24 6Z" fill="url(#geminiGradient)"/>
-  <path d="M6 24C6 24 18 22 24 22C30 22 42 24 42 24C42 24 30 26 24 26C18 26 6 24 6 24Z" fill="url(#geminiGradient)"/>
-  <ellipse cx="24" cy="24" rx="4" ry="4" fill="url(#geminiGradient)"/>
+  <!-- 4-pointed star shape -->
+  <path d="M24 8 C24 8 26 20 26 24 C26 28 24 40 24 40 C24 40 22 28 22 24 C22 20 24 8 24 8 Z" fill="url(#geminiGradient1)"/>
+  <path d="M8 24 C8 24 20 22 24 22 C28 22 40 24 40 24 C40 24 28 26 24 26 C20 26 8 24 8 24 Z" fill="url(#geminiGradient1)"/>
 </svg>
