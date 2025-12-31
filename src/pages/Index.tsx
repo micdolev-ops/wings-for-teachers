@@ -38,7 +38,7 @@ const Index = () => {
           </h1>
           
           <p 
-            className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-in"
+            className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-in mb-8"
             style={{ animationDelay: "350ms", animationFillMode: "forwards" }}
           >
             <TypewriterText
@@ -48,16 +48,12 @@ const Index = () => {
               showCursor={true}
             />
           </p>
-        </div>
-      </section>
-
-      {/* Logo Section */}
-      <section className="py-2 md:py-4">
-        <div className="flex justify-center">
+          
+          {/* Logo */}
           <img 
             src={logoWithBg} 
             alt="בינה יתרה לוגו" 
-            className="w-24 h-24 md:w-32 md:h-32 rounded-full drop-shadow-lg opacity-0 animate-fade-in"
+            className="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full drop-shadow-lg opacity-0 animate-fade-in"
             style={{ animationDelay: "600ms", animationFillMode: "forwards" }}
           />
         </div>
