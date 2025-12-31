@@ -9,7 +9,6 @@
       <stop offset="100%" stop-color="#F49C46"/>
     </linearGradient>
   </defs>
-  <!-- 4-pointed star shape -->
-  <path d="M24 8 C24 8 26 20 26 24 C26 28 24 40 24 40 C24 40 22 28 22 24 C22 20 24 8 24 8 Z" fill="url(#geminiGradient1)"/>
-  <path d="M8 24 C8 24 20 22 24 22 C28 22 40 24 40 24 C40 24 28 26 24 26 C20 26 8 24 8 24 Z" fill="url(#geminiGradient1)"/>
+  <!-- 4-pointed star shape like Google Gemini -->
+  <path d="M24 6 L26.5 21.5 L42 24 L26.5 26.5 L24 42 L21.5 26.5 L6 24 L21.5 21.5 Z" fill="url(#geminiGradient1)"/>
 </svg>
