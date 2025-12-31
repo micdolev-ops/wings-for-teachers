@@ -29,16 +29,26 @@ const AboutPage = () => {
 
                 {/* Bio Text */}
                 <div className="text-center md:text-right flex-1">
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">מיכל אלגרבלי</h2>
-                  <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">נעים מאוד, אני</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-6">מיכל אלגרבלי</h2>
+                  <div className="space-y-5 text-muted-foreground leading-relaxed">
                     <p>
-                      שלום! אני מיכל, מורה עם תשוקה לטכנולוגיה חינוכית.
+                      מלווה מורים במסע אל עולם של יצירתיות, טכנולוגיה והוראה משמעותית. לאורך השנים לימדתי תלמידים, הדרכתי סטודנטים, וכיום אני מתמקדת בהנחיית השתלמויות ביישומי Canva ובכלי בינה מלאכותית (AI) להוראה.
                     </p>
+                    
+                    <div className="py-3 px-4 rounded-xl bg-primary/10 border border-primary/20">
+                      <p className="text-foreground font-medium">
+                        ✨ טכנולוגיה לא מחליפה מורים – היא מעניקה להם כנפיים
+                      </p>
+                    </div>
+                    
                     <p>
-                      הקמתי את "בינה יתרה" מתוך רצון לעזור למורים להכיר את הכלים הטכנולוגיים החדשניים ביותר בצורה פשוטה ונגישה.
+                      אני מאמינה שכלים דיגיטליים מאפשרים לכל מורה, גם ללא רקע בעיצוב, ליצור חומרים מרגשים ולבטא את הרעיונות שלו בצורה הוויזואלית והטובה ביותר.
                     </p>
+                    
+                    <h3 className="text-xl font-bold text-foreground pt-2">מה זה "בינה יתרה"?</h3>
                     <p>
-                      אני מאמינה שטכנולוגיה טובה לא מחליפה מורים - היא מעניקה להם כנפיים לעוף גבוה יותר וליצור חוויות למידה בלתי נשכחות.
+                      המרחב הזה הוקם כדי להיות בית תומך ונגיש עבורכם – בין אם אתם עושים את הצעדים הראשונים בעולם הדיגיטלי או מבקשים להעמיק ולהתרחב. כאן תמצאו השראה, חומרים וכלים שיעזרו לכם להוביל הוראה יצירתית וחדשנית.
                     </p>
                   </div>
                 </div>
