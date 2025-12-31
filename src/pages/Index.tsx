@@ -2,7 +2,7 @@ import { Palette, Bot } from "lucide-react";
 import GatewayCard from "@/components/GatewayCard";
 import Layout from "@/components/Layout";
 import TypewriterText from "@/components/TypewriterText";
-import logo from "@/assets/logo.svg";
+import logoWithBg from "@/assets/logo-with-bg.png";
 
 const Index = () => {
   return (
@@ -52,19 +52,19 @@ const Index = () => {
       </section>
 
       {/* Logo Section */}
-      <section className="py-8 md:py-12">
+      <section className="py-2 md:py-4">
         <div className="flex justify-center">
           <img 
-            src={logo} 
+            src={logoWithBg} 
             alt="בינה יתרה לוגו" 
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full drop-shadow-lg opacity-0 animate-fade-in"
+            className="w-24 h-24 md:w-32 md:h-32 rounded-full drop-shadow-lg opacity-0 animate-fade-in"
             style={{ animationDelay: "600ms", animationFillMode: "forwards" }}
           />
         </div>
       </section>
 
       {/* Gateway Cards Section */}
-      <section className="py-16 md:py-24 relative">
+      <section className="py-8 md:py-12 relative">
         <div className="container mx-auto px-4 md:px-6">
           {/* Section Title */}
           <div className="text-center mb-12 md:mb-16">
