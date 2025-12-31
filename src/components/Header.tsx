@@ -22,12 +22,7 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex h-24 md:h-32 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-4 group flex-row-reverse">
-            <img
-              src={logoWithBg}
-              alt="בינה יתרה - לוגו"
-              className="w-20 h-20 md:w-28 md:h-28 object-contain drop-shadow-[0_4px_20px_rgba(0,0,0,0.3)] group-hover:scale-[1.02] transition-transform duration-300 rounded-full"
-            />
+          <Link to="/" className="flex items-center group">
             <span className="text-2xl md:text-3xl font-bold gradient-text">בינה יתרה</span>
           </Link>
 
