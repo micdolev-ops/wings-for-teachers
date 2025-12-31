@@ -29,7 +29,8 @@ const AboutPage = () => {
 
                 {/* Bio Text */}
                 <div className="text-center md:text-right flex-1">
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">נעים מאוד, אני</h2>
+                  <h2 className="text-3xl md:text-4xl font-handwriting text-foreground mb-1">נעים מאוד,</h2>
+                  <h2 className="text-3xl md:text-4xl font-handwriting text-foreground mb-2">אני</h2>
                   <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-6">מיכל אלגרבלי</h2>
                   <div className="space-y-5 text-muted-foreground leading-relaxed">
                     <p>
