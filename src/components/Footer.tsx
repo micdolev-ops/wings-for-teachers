@@ -1,4 +1,4 @@
-import { Sparkles, Heart } from "lucide-react";
+import { Sparkles, Heart, Mail, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -27,14 +27,40 @@ const Footer = () => {
             <Link to="/ai" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               בינה מלאכותית
             </Link>
+            <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              אודות
+            </Link>
+            <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              צור קשר
+            </Link>
           </nav>
+
+          {/* Social Links */}
+          <div className="flex items-center gap-3">
+            <a
+              href="mailto:micdolev@gmail.com"
+              className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-colors"
+              aria-label="שלחו אימייל"
+            >
+              <Mail className="w-4 h-4" />
+            </a>
+            <a
+              href="https://wa.me/972545567227"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-colors"
+              aria-label="שלחו וואטסאפ"
+            >
+              <MessageCircle className="w-4 h-4" />
+            </a>
+          </div>
         </div>
 
         {/* Copyright */}
         <div className="mt-8 pt-6 border-t border-border/40 flex items-center justify-center gap-1 text-sm text-muted-foreground">
           <span>נבנה עם</span>
           <Heart className="w-4 h-4 text-secondary fill-secondary" />
-          <span>למורים בכל מקום</span>
+          <span>על ידי מיכל אלגרבלי</span>
         </div>
       </div>
     </footer>
