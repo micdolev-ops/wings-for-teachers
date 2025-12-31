@@ -1,8 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import { Sparkles, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
+import logo from "@/assets/logo.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,9 +21,11 @@ const Header = () => {
         <div className="flex h-16 md:h-20 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl gradient-primary shadow-soft group-hover:shadow-glow transition-shadow duration-300">
-              <Sparkles className="w-5 h-5 text-primary-foreground" />
-            </div>
+            <img 
+              src={logo} 
+              alt="בינה יתרה" 
+              className="w-10 h-10 md:w-12 md:h-12 rounded-lg object-contain shadow-soft group-hover:shadow-glow transition-shadow duration-300"
+            />
             <span className="text-xl font-bold gradient-text">בינה יתרה</span>
           </Link>
 

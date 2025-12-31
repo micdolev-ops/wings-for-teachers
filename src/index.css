@@ -9,33 +9,33 @@
 
 @layer base {
   :root {
-    /* Core backgrounds */
-    --background: 270 50% 99%;
-    --foreground: 270 50% 10%;
+    /* Core backgrounds - Dark AI theme */
+    --background: 240 40% 8%;
+    --foreground: 210 40% 98%;
 
     /* Cards & surfaces */
-    --card: 0 0% 100%;
-    --card-foreground: 270 50% 10%;
+    --card: 240 35% 12%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 270 50% 10%;
+    --popover: 240 35% 12%;
+    --popover-foreground: 210 40% 98%;
 
-    /* Primary: Deep purple */
-    --primary: 270 70% 50%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 270 70% 65%;
+    /* Primary: Teal/Cyan */
+    --primary: 175 70% 45%;
+    --primary-foreground: 240 40% 8%;
+    --primary-glow: 175 70% 60%;
 
-    /* Secondary: Soft pink */
-    --secondary: 330 70% 55%;
+    /* Secondary: Deep purple/violet */
+    --secondary: 270 60% 55%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-glow: 330 70% 70%;
+    --secondary-glow: 270 60% 70%;
 
     /* Muted surfaces */
-    --muted: 270 20% 96%;
-    --muted-foreground: 270 20% 40%;
+    --muted: 240 30% 16%;
+    --muted-foreground: 210 20% 70%;
 
-    /* Accent: Vibrant magenta */
-    --accent: 300 70% 50%;
+    /* Accent: Vibrant purple-pink */
+    --accent: 280 70% 60%;
     --accent-foreground: 0 0% 100%;
 
     /* Destructive */
@@ -43,73 +43,74 @@
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & inputs */
-    --border: 270 20% 90%;
-    --input: 270 20% 90%;
-    --ring: 270 70% 50%;
+    --border: 240 30% 22%;
+    --input: 240 30% 22%;
+    --ring: 175 70% 45%;
 
     --radius: 1rem;
 
-    /* Custom gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(270, 70%, 50%), hsl(330, 70%, 55%));
-    --gradient-secondary: linear-gradient(135deg, hsl(330, 70%, 55%), hsl(270, 70%, 50%));
-    --gradient-subtle: linear-gradient(180deg, hsl(270, 50%, 99%), hsl(270, 30%, 97%));
-    --gradient-card-canva: linear-gradient(145deg, hsl(270, 60%, 97%), hsl(280, 50%, 95%));
-    --gradient-card-ai: linear-gradient(145deg, hsl(330, 50%, 97%), hsl(320, 40%, 95%));
+    /* Custom gradients - AI inspired */
+    --gradient-primary: linear-gradient(135deg, hsl(175, 70%, 45%), hsl(200, 70%, 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(270, 60%, 55%), hsl(300, 60%, 55%));
+    --gradient-hero: linear-gradient(180deg, hsl(240, 40%, 6%) 0%, hsl(260, 50%, 12%) 50%, hsl(240, 40%, 8%) 100%);
+    --gradient-card-canva: linear-gradient(145deg, hsl(175, 50%, 20%), hsl(180, 40%, 15%));
+    --gradient-card-ai: linear-gradient(145deg, hsl(270, 50%, 25%), hsl(280, 40%, 18%));
 
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(270 50% 50% / 0.15);
-    --shadow-glow: 0 8px 40px -8px hsl(270 70% 50% / 0.25);
-    --shadow-card: 0 10px 40px -10px hsl(270 50% 30% / 0.12);
+    --shadow-soft: 0 4px 20px -4px hsl(175 70% 50% / 0.2);
+    --shadow-glow: 0 8px 40px -8px hsl(175 70% 50% / 0.3);
+    --shadow-card: 0 10px 40px -10px hsl(240 50% 5% / 0.5);
 
     /* Sidebar */
-    --sidebar-background: 270 30% 98%;
-    --sidebar-foreground: 270 50% 20%;
-    --sidebar-primary: 270 70% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 270 30% 94%;
-    --sidebar-accent-foreground: 270 50% 20%;
-    --sidebar-border: 270 20% 90%;
-    --sidebar-ring: 270 70% 50%;
+    --sidebar-background: 240 35% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 175 70% 45%;
+    --sidebar-primary-foreground: 240 40% 8%;
+    --sidebar-accent: 240 30% 16%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 240 30% 22%;
+    --sidebar-ring: 175 70% 45%;
   }
 
-  .dark {
-    --background: 270 50% 5%;
-    --foreground: 270 20% 95%;
+  /* Dark mode is now the default - keeping this for potential light mode toggle */
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 40% 10%;
 
-    --card: 270 40% 8%;
-    --card-foreground: 270 20% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 40% 10%;
 
-    --popover: 270 40% 8%;
-    --popover-foreground: 270 20% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 40% 10%;
 
-    --primary: 270 70% 60%;
-    --primary-foreground: 270 50% 5%;
-    --primary-glow: 270 70% 70%;
+    --primary: 175 70% 40%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 175 70% 55%;
 
-    --secondary: 330 60% 60%;
-    --secondary-foreground: 270 50% 5%;
+    --secondary: 270 60% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 270 30% 15%;
-    --muted-foreground: 270 20% 60%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 20% 40%;
 
-    --accent: 300 60% 55%;
-    --accent-foreground: 270 50% 5%;
+    --accent: 280 70% 55%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62% 50%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 270 30% 20%;
-    --input: 270 30% 20%;
-    --ring: 270 70% 60%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 175 70% 40%;
 
-    --sidebar-background: 270 40% 6%;
-    --sidebar-foreground: 270 20% 90%;
-    --sidebar-primary: 270 70% 60%;
-    --sidebar-primary-foreground: 270 50% 5%;
-    --sidebar-accent: 270 30% 12%;
-    --sidebar-accent-foreground: 270 20% 90%;
-    --sidebar-border: 270 30% 18%;
-    --sidebar-ring: 270 70% 60%;
+    --sidebar-background: 210 20% 98%;
+    --sidebar-foreground: 240 40% 10%;
+    --sidebar-primary: 175 70% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 94%;
+    --sidebar-accent-foreground: 240 40% 10%;
+    --sidebar-border: 210 20% 90%;
+    --sidebar-ring: 175 70% 40%;
   }
 }
 
