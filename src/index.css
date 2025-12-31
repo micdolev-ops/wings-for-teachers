@@ -9,15 +9,15 @@
 
 @layer base {
   :root {
-    /* Core backgrounds - Dark AI theme */
-    --background: 240 40% 8%;
+    /* Core backgrounds - Dark purple AI theme */
+    --background: 270 50% 8%;
     --foreground: 210 40% 98%;
 
     /* Cards & surfaces */
-    --card: 240 35% 12%;
+    --card: 270 40% 12%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 240 35% 12%;
+    --popover: 270 40% 12%;
     --popover-foreground: 210 40% 98%;
 
     /* Primary: Teal/Cyan */
@@ -31,7 +31,7 @@
     --secondary-glow: 270 60% 70%;
 
     /* Muted surfaces */
-    --muted: 240 30% 16%;
+    --muted: 270 35% 16%;
     --muted-foreground: 210 20% 70%;
 
     /* Accent: Vibrant purple-pink */
@@ -43,8 +43,8 @@
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & inputs */
-    --border: 240 30% 22%;
-    --input: 240 30% 22%;
+    --border: 270 35% 22%;
+    --input: 270 35% 22%;
     --ring: 175 70% 45%;
 
     --radius: 1rem;
@@ -52,23 +52,23 @@
     /* Custom gradients - AI inspired */
     --gradient-primary: linear-gradient(135deg, hsl(175, 70%, 45%), hsl(200, 70%, 50%));
     --gradient-secondary: linear-gradient(135deg, hsl(270, 60%, 55%), hsl(300, 60%, 55%));
-    --gradient-hero: linear-gradient(180deg, hsl(240, 40%, 6%) 0%, hsl(260, 50%, 12%) 50%, hsl(240, 40%, 8%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(270, 50%, 6%) 0%, hsl(280, 50%, 12%) 50%, hsl(270, 50%, 8%) 100%);
     --gradient-card-canva: linear-gradient(145deg, hsl(175, 50%, 20%), hsl(180, 40%, 15%));
     --gradient-card-ai: linear-gradient(145deg, hsl(270, 50%, 25%), hsl(280, 40%, 18%));
 
     /* Shadows */
     --shadow-soft: 0 4px 20px -4px hsl(175 70% 50% / 0.2);
     --shadow-glow: 0 8px 40px -8px hsl(175 70% 50% / 0.3);
-    --shadow-card: 0 10px 40px -10px hsl(240 50% 5% / 0.5);
+    --shadow-card: 0 10px 40px -10px hsl(270 50% 5% / 0.5);
 
     /* Sidebar */
-    --sidebar-background: 240 35% 10%;
+    --sidebar-background: 270 40% 10%;
     --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 175 70% 45%;
-    --sidebar-primary-foreground: 240 40% 8%;
-    --sidebar-accent: 240 30% 16%;
+    --sidebar-primary-foreground: 270 50% 8%;
+    --sidebar-accent: 270 35% 16%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 240 30% 22%;
+    --sidebar-border: 270 35% 22%;
     --sidebar-ring: 175 70% 45%;
   }
 
