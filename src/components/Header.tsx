@@ -18,13 +18,13 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex h-20 md:h-24 items-center justify-between">
+        <div className="flex h-24 md:h-32 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-4 group">
-            <img 
-              src={logo} 
-              alt="בינה יתרה" 
-              className="w-16 h-16 md:w-24 md:h-24 object-contain brightness-0 invert drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-105 transition-transform duration-300"
+          <Link to="/" className="flex items-center gap-4 group flex-row-reverse">
+            <img
+              src={logo}
+              alt="בינה יתרה - לוגו"
+              className="w-28 h-28 md:w-44 md:h-44 object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.35)] group-hover:scale-[1.02] transition-transform duration-300"
             />
             <span className="text-2xl md:text-3xl font-bold gradient-text">בינה יתרה</span>
           </Link>
