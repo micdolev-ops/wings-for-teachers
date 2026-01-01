@@ -76,7 +76,7 @@ const ContactPage = () => {
                 </div>
 
                 <a
-                  href="https://wa.me/972545567227"
+                  href="https://api.whatsapp.com/send?phone=972545567227"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card rounded-2xl p-6 flex items-center gap-4 group hover:shadow-glow transition-all duration-300"
