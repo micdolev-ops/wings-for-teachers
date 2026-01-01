@@ -10,10 +10,11 @@ interface PlatformCardProps {
   description: string;
   icon?: React.ElementType;
   iconImage?: string;
+  youtubeVideoId?: string;
   delay: number;
 }
 
-const PlatformCard = ({ title, description, icon: Icon, iconImage, delay }: PlatformCardProps) => (
+const PlatformCard = ({ title, description, icon: Icon, iconImage, youtubeVideoId, delay }: PlatformCardProps) => (
   <div
     className={cn(
       "group relative p-8 rounded-2xl",
@@ -42,6 +43,22 @@ const PlatformCard = ({ title, description, icon: Icon, iconImage, delay }: Plat
       <p className="text-muted-foreground leading-relaxed">
         {description}
       </p>
+      
+      {/* YouTube Video Embed */}
+      {youtubeVideoId && (
+        <div className="mt-6 rounded-xl overflow-hidden shadow-lg">
+          <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+              title={`${title} video`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
+      
       <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground group-hover:text-secondary transition-colors">
         <span>לכל ההדרכות</span>
         <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
@@ -62,6 +79,7 @@ const AIPage = () => {
       title: "NotebookLM",
       description: "כלי מחקר ולמידה מבוסס AI של גוגל שמאפשר לנתח מסמכים וליצור תוכן חכם",
       iconImage: notebookLmLogo,
+      youtubeVideoId: "ElAhV2Qi5sA",
     },
     {
       title: "Gemini",
