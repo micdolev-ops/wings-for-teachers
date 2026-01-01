@@ -1,8 +1,26 @@
-import { Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle, Copy } from "lucide-react";
+import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import ScrollAnimation from "@/components/ScrollAnimation";
 
 const ContactPage = () => {
+  const email = "micdolev@gmail.com";
+
+  const copyEmail = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    try {
+      await navigator.clipboard.writeText(email);
+      toast.success("הכתובת הועתקה!");
+    } catch {
+      toast.error("לא הצלחנו להעתיק");
+    }
+  };
+
+  const openGmail = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    window.open(`https://mail.google.com/mail/?view=cm&to=${email}`, "_blank");
+  };
+
   return (
     <Layout>
       <section className="py-16 md:py-24 min-h-[80vh] flex items-center">
@@ -20,18 +38,36 @@ const ContactPage = () => {
             <div className="max-w-2xl mx-auto">
               {/* Contact Options - Side by Side */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <a
-                  href="mailto:micdolev@gmail.com"
-                  className="glass-card rounded-2xl p-6 flex items-center gap-4 group hover:shadow-glow transition-all duration-300"
-                >
-                  <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <Mail className="w-6 h-6 text-primary-foreground" />
+                {/* Email Card */}
+                <div className="glass-card rounded-2xl p-6">
+                  <a
+                    href={`mailto:${email}`}
+                    className="flex items-center gap-4 group"
+                  >
+                    <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                      <Mail className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                    <div className="text-right">
+                      <h3 className="font-bold text-foreground mb-1">אימייל</h3>
+                      <p className="text-muted-foreground text-sm">{email}</p>
+                    </div>
+                  </a>
+                  <div className="flex gap-2 mt-4 justify-end">
+                    <button
+                      onClick={copyEmail}
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-lg bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <Copy className="w-3.5 h-3.5" />
+                      העתק
+                    </button>
+                    <button
+                      onClick={openGmail}
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-lg bg-[hsl(5,81%,56%)] hover:bg-[hsl(5,81%,50%)] text-white transition-colors"
+                    >
+                      Gmail
+                    </button>
                   </div>
-                  <div className="text-right">
-                    <h3 className="font-bold text-foreground mb-1">אימייל</h3>
-                    <p className="text-muted-foreground text-sm">micdolev@gmail.com</p>
-                  </div>
-                </a>
+                </div>
 
                 <a
                   href="https://wa.me/972545567227"
