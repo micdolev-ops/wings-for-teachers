@@ -1,5 +1,6 @@
+import { useState } from "react";
 import Layout from "@/components/Layout";
-import { Bot, MessageSquare, Lightbulb, AlertCircle, ArrowLeft, Sparkles, ChevronDown } from "lucide-react";
+import { Bot, MessageSquare, Lightbulb, AlertCircle, ArrowLeft, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import notebookLmLogo from "@/assets/notebooklm-logo.svg";
@@ -19,68 +20,111 @@ interface PlatformCardProps {
   delay: number;
 }
 
-const PlatformCard = ({ title, description, icon: Icon, iconImage, youtubeVideoId, presentationSlides, delay }: PlatformCardProps) => (
-  <div
-    className={cn(
-      "group relative p-8 rounded-2xl",
-      "bg-[hsl(280_50%_25%_/_0.4)] backdrop-blur-xl border border-[hsl(320_70%_60%_/_0.35)]",
-      "shadow-[0_8px_32px_-8px_hsl(320_70%_55%_/_0.3)] hover:shadow-[0_16px_48px_-8px_hsl(320_70%_55%_/_0.5)]",
-      "transition-all duration-500",
-      "hover:scale-[1.02] hover:-translate-y-2 hover:bg-[hsl(280_50%_25%_/_0.55)]",
-      "opacity-0 animate-fade-in-up cursor-pointer"
-    )}
-    style={{ animationDelay: `${delay}ms`, animationFillMode: "forwards" }}
-  >
-    {/* Gradient hover overlay */}
-    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-secondary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-    
-    <div className="relative z-10">
-      <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-white shadow-[0_0_30px_8px_hsl(320_70%_55%_/_0.3)] mb-6">
-        {iconImage ? (
-          <img src={iconImage} alt={title} className="w-12 h-12 object-contain" />
-        ) : Icon ? (
-          <Icon className="w-8 h-8 text-secondary" />
-        ) : null}
-      </div>
-      <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">
-        {title}
-      </h3>
-      <p className="text-muted-foreground leading-relaxed">
-        {description}
-      </p>
+const PlatformCard = ({ title, description, icon: Icon, iconImage, youtubeVideoId, presentationSlides, delay }: PlatformCardProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const hasContent = youtubeVideoId || (presentationSlides && presentationSlides.length > 0);
+
+  return (
+    <div
+      className={cn(
+        "group relative rounded-2xl",
+        "bg-[hsl(280_50%_25%_/_0.4)] backdrop-blur-xl border border-[hsl(320_70%_60%_/_0.35)]",
+        "shadow-[0_8px_32px_-8px_hsl(320_70%_55%_/_0.3)]",
+        "transition-all duration-500",
+        "opacity-0 animate-fade-in-up",
+        isExpanded && "shadow-[0_16px_48px_-8px_hsl(320_70%_55%_/_0.5)]"
+      )}
+      style={{ animationDelay: `${delay}ms`, animationFillMode: "forwards" }}
+    >
+      {/* Gradient hover overlay */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-secondary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
-      {/* YouTube Video Embed */}
-      {youtubeVideoId && (
-        <div className="mt-6">
-          <h4 className="text-sm font-medium text-foreground mb-2 px-1">מדריך לעבודה ב-NotebookLM · ד״ר לימור ליבוביץ</h4>
-          <div className="rounded-xl overflow-hidden shadow-lg">
-            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src={`https://www.youtube.com/embed/${youtubeVideoId}`}
-                title={`${title} video`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+      {/* Clickable Header */}
+      <button
+        onClick={() => hasContent && setIsExpanded(!isExpanded)}
+        className={cn(
+          "relative z-10 w-full text-right p-8",
+          hasContent && "cursor-pointer hover:bg-[hsl(280_50%_25%_/_0.15)] transition-colors rounded-2xl",
+          isExpanded && "rounded-b-none"
+        )}
+        disabled={!hasContent}
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex-1">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-white shadow-[0_0_30px_8px_hsl(320_70%_55%_/_0.3)]">
+                {iconImage ? (
+                  <img src={iconImage} alt={title} className="w-12 h-12 object-contain" />
+                ) : Icon ? (
+                  <Icon className="w-8 h-8 text-secondary" />
+                ) : null}
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-foreground group-hover:text-secondary transition-colors">
+                  {title}
+                </h3>
+                {hasContent && (
+                  <span className="text-xs text-muted-foreground">לחצו לפתיחה</span>
+                )}
+              </div>
             </div>
+            <p className="text-muted-foreground leading-relaxed">
+              {description}
+            </p>
+          </div>
+          
+          {hasContent && (
+            <div className="flex-shrink-0 p-2 rounded-full bg-secondary/20 text-secondary transition-transform duration-300">
+              {isExpanded ? (
+                <ChevronUp className="w-5 h-5" />
+              ) : (
+                <ChevronDown className="w-5 h-5" />
+              )}
+            </div>
+          )}
+        </div>
+      </button>
+
+      {/* Expandable Content */}
+      <div
+        className={cn(
+          "overflow-hidden transition-all duration-500 ease-in-out",
+          isExpanded ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+        )}
+      >
+        <div className="relative z-10 px-8 pb-8 space-y-6">
+          {/* YouTube Video Embed */}
+          {youtubeVideoId && (
+            <div>
+              <h4 className="text-sm font-medium text-foreground mb-2 px-1">מדריך לעבודה ב-NotebookLM · ד״ר לימור ליבוביץ</h4>
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+                    title={`${title} video`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+          
+          {/* Presentation Slides */}
+          {presentationSlides && presentationSlides.length > 0 && (
+            <SlideViewer slides={presentationSlides} title="סיכום הדרכת הווידאו" />
+          )}
+          
+          <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-secondary transition-colors">
+            <span>לכל ההדרכות</span>
+            <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
           </div>
         </div>
-      )}
-      
-      {/* Presentation Slides */}
-      {presentationSlides && presentationSlides.length > 0 && (
-        <div className="mt-6">
-          <SlideViewer slides={presentationSlides} title="סיכום הדרכת הווידאו" />
-        </div>
-      )}
-      
-      <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground group-hover:text-secondary transition-colors">
-        <span>לכל ההדרכות</span>
-        <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const AIPage = () => {
   const promptTips = [
