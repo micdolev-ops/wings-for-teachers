@@ -59,22 +59,22 @@ const CanvaPage = () => {
     icon: Sparkles
   }];
   return <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-[50vh] py-16 md:py-24 flex items-center overflow-hidden">
-        {/* Video Background */}
+      {/* Video Section */}
+      <section className="relative h-[40vh] md:h-[50vh] overflow-hidden">
         <video 
           autoPlay 
           loop 
           muted 
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
+          className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/videos/canva-bg.mp4" type="video/mp4" />
         </video>
-        
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background" />
-        
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+      </section>
+
+      {/* Hero Content Section */}
+      <section className="py-12 md:py-16 relative">
         {/* Decorative background */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
