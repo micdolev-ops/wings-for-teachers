@@ -4,8 +4,22 @@ import TypewriterText from "@/components/TypewriterText";
 import michalProfile from "@/assets/michal-profile.jpg";
 const AboutPage = () => {
   return <Layout>
-      <section className="py-16 md:py-24 min-h-[80vh]">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="relative py-16 md:py-24 min-h-[80vh] overflow-hidden">
+        {/* Video Background */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+        >
+          <source src="/videos/about-bg.mp4" type="video/mp4" />
+        </video>
+        
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
+        
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <ScrollAnimation>
             <h1 className="text-4xl md:text-6xl font-handwriting font-bold text-center mb-12">
               <span className="gradient-text">קצת עליי</span>
