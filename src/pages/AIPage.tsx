@@ -18,12 +18,14 @@ interface PlatformCardProps {
   icon?: React.ElementType;
   iconImage?: string;
   youtubeVideoId?: string;
+  youtubeVideoTitle?: string;
   presentationSlides?: string[];
   presentationRotate180Slides?: number[];
+  presentationTitle?: string;
   delay: number;
 }
 
-const PlatformCard = ({ title, description, icon: Icon, iconImage, youtubeVideoId, presentationSlides, presentationRotate180Slides, delay }: PlatformCardProps) => {
+const PlatformCard = ({ title, description, icon: Icon, iconImage, youtubeVideoId, youtubeVideoTitle, presentationSlides, presentationRotate180Slides, presentationTitle, delay }: PlatformCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const hasContent = youtubeVideoId || (presentationSlides && presentationSlides.length > 0);
 
@@ -99,7 +101,9 @@ const PlatformCard = ({ title, description, icon: Icon, iconImage, youtubeVideoI
           {/* YouTube Video Embed */}
           {youtubeVideoId && (
             <div>
-              <h4 className="text-sm font-medium text-foreground mb-2 px-1">מדריך לעבודה ב-NotebookLM · ד״ר לימור ליבוביץ</h4>
+              {youtubeVideoTitle && (
+                <h4 className="text-sm font-medium text-foreground mb-2 px-1">{youtubeVideoTitle}</h4>
+              )}
               <div className="rounded-xl overflow-hidden shadow-lg">
                 <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
                   <iframe
@@ -116,7 +120,7 @@ const PlatformCard = ({ title, description, icon: Icon, iconImage, youtubeVideoI
           
           {/* Presentation Slides */}
           {presentationSlides && presentationSlides.length > 0 && (
-            <SlideViewer slides={presentationSlides} rotate180Slides={presentationRotate180Slides} title="סיכום הדרכת הווידאו" />
+            <SlideViewer slides={presentationSlides} rotate180Slides={presentationRotate180Slides} title={presentationTitle || "מצגת"} />
           )}
           
           <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-secondary transition-colors">
@@ -142,13 +146,17 @@ const AIPage = () => {
       description: "כלי מחקר ולמידה מבוסס AI של גוגל שמאפשר לנתח מסמכים וליצור תוכן חכם",
       iconImage: notebookLmLogo,
       youtubeVideoId: "ElAhV2Qi5sA",
+      youtubeVideoTitle: "מדריך לעבודה ב-NotebookLM · ד״ר לימור ליבוביץ",
       presentationSlides: notebookLmSlides,
       presentationRotate180Slides: notebookLmRotate180Slides,
+      presentationTitle: "סיכום הדרכת הווידאו",
     },
     {
       title: "Gemini",
       description: "מודל השפה המתקדם של גוגל לשיחות, יצירת תוכן וניתוח מידע מורכב",
       iconImage: geminiLogo,
+      youtubeVideoId: "J53VSVs2R0w",
+      youtubeVideoTitle: "יצירת מצגת בג'מיני",
     },
   ];
 
@@ -289,8 +297,10 @@ const AIPage = () => {
                 description={platform.description}
                 iconImage={platform.iconImage}
                 youtubeVideoId={platform.youtubeVideoId}
+                youtubeVideoTitle={platform.youtubeVideoTitle}
                 presentationSlides={platform.presentationSlides}
                 presentationRotate180Slides={platform.presentationRotate180Slides}
+                presentationTitle={platform.presentationTitle}
                 delay={1200 + index * 150}
               />
             ))}
