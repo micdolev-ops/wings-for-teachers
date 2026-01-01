@@ -5,9 +5,11 @@ import { cn } from "@/lib/utils";
 interface SlideViewerProps {
   slides: string[];
   title?: string;
+  /** 1-indexed slide numbers that should be rotated 180° */
+  rotate180Slides?: number[];
 }
 
-const SlideViewer = ({ slides, title }: SlideViewerProps) => {
+const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -44,7 +46,10 @@ const SlideViewer = ({ slides, title }: SlideViewerProps) => {
           <img
             src={slides[currentSlide]}
             alt={`שקופית ${currentSlide + 1}`}
-            className="w-full h-full object-contain rotate-180"
+            className={cn(
+              "w-full h-full object-contain",
+              rotate180Slides?.includes(currentSlide + 1) && "rotate-180"
+            )}
           />
 
           {/* Navigation Arrows */}
@@ -114,7 +119,10 @@ const SlideViewer = ({ slides, title }: SlideViewerProps) => {
           <img
             src={slides[currentSlide]}
             alt={`שקופית ${currentSlide + 1}`}
-            className="max-w-full max-h-full object-contain rotate-180"
+            className={cn(
+              "max-w-full max-h-full object-contain",
+              rotate180Slides?.includes(currentSlide + 1) && "rotate-180"
+            )}
           />
 
           {/* Navigation in Fullscreen */}
