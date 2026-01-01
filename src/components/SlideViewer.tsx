@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +12,8 @@ interface SlideViewerProps {
 const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const fullscreenRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number | null>(null);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -25,6 +27,69 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
     if (e.key === "ArrowRight") prevSlide();
     if (e.key === "ArrowLeft") nextSlide();
     if (e.key === "Escape") setIsFullscreen(false);
+  };
+
+  // Global keyboard listener for fullscreen mode
+  useEffect(() => {
+    if (!isFullscreen) return;
+
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") prevSlide();
+      if (e.key === "ArrowLeft") nextSlide();
+      if (e.key === "Escape") setIsFullscreen(false);
+    };
+
+    window.addEventListener("keydown", handleGlobalKeyDown);
+    return () => window.removeEventListener("keydown", handleGlobalKeyDown);
+  }, [isFullscreen]);
+
+  // Focus fullscreen container when opened
+  useEffect(() => {
+    if (isFullscreen && fullscreenRef.current) {
+      fullscreenRef.current.focus();
+    }
+  }, [isFullscreen]);
+
+  // Touch/swipe handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+    const threshold = 50;
+
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        // Swiped left (RTL: next slide)
+        nextSlide();
+      } else {
+        // Swiped right (RTL: previous slide)
+        prevSlide();
+      }
+    }
+    touchStartX.current = null;
+  };
+
+  // Click on left/right half of screen to navigate
+  const handleSlideAreaClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const halfWidth = rect.width / 2;
+
+    // RTL: click right half = prev, click left half = next
+    if (clickX > halfWidth) {
+      prevSlide();
+    } else {
+      nextSlide();
+    }
+  };
+
+  const shouldRotate = (slideIndex: number) => {
+    return rotate180Slides?.includes(slideIndex + 1);
   };
 
   return (
@@ -48,7 +113,7 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
             alt={`שקופית ${currentSlide + 1}`}
             className={cn(
               "w-full h-full object-contain",
-              rotate180Slides?.includes(currentSlide + 1) && "rotate-180"
+              shouldRotate(currentSlide) && "rotate-180"
             )}
           />
 
@@ -104,13 +169,15 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
       {/* Fullscreen Modal */}
       {isFullscreen && (
         <div 
-          className="fixed inset-0 z-[9999] bg-black flex flex-col"
+          ref={fullscreenRef}
+          className="fixed inset-0 z-[9999] bg-neutral-900 flex flex-col"
           onKeyDown={handleKeyDown}
           tabIndex={0}
-          autoFocus
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           {/* Top bar */}
-          <div className="flex items-center justify-between p-4">
+          <div className="flex items-center justify-between p-3 sm:p-4 bg-black/50">
             <div className="text-white text-sm">
               {currentSlide + 1} / {slides.length}
             </div>
@@ -123,42 +190,48 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
             </button>
           </div>
 
-          {/* Main slide area */}
-          <div className="flex-1 flex items-center justify-center px-16 pb-8 relative">
-            <img
-              src={slides[currentSlide]}
-              alt={`שקופית ${currentSlide + 1}`}
-              className={cn(
-                "max-w-full max-h-full object-contain",
-                rotate180Slides?.includes(currentSlide + 1) && "rotate-180"
-              )}
-            />
+          {/* Main slide area - clickable for navigation */}
+          <div 
+            className="flex-1 flex items-center justify-center p-2 sm:p-4 md:p-8 relative cursor-pointer"
+            onClick={handleSlideAreaClick}
+          >
+            {/* White background wrapper for the slide */}
+            <div className="bg-white rounded-lg shadow-2xl max-w-full max-h-full overflow-hidden">
+              <img
+                src={slides[currentSlide]}
+                alt={`שקופית ${currentSlide + 1}`}
+                className={cn(
+                  "max-w-full max-h-[calc(100vh-160px)] object-contain",
+                  shouldRotate(currentSlide) && "rotate-180"
+                )}
+              />
+            </div>
 
-            {/* Navigation Arrows */}
+            {/* Navigation Arrows - larger and more visible */}
             <button
-              onClick={prevSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 hover:bg-white/30 text-white transition-colors"
+              onClick={(e) => { e.stopPropagation(); prevSlide(); }}
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full bg-black/60 hover:bg-black/80 text-white transition-colors"
               aria-label="שקופית הבאה"
             >
-              <ChevronRight className="w-8 h-8" />
+              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
             </button>
             <button
-              onClick={nextSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 hover:bg-white/30 text-white transition-colors"
+              onClick={(e) => { e.stopPropagation(); nextSlide(); }}
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full bg-black/60 hover:bg-black/80 text-white transition-colors"
               aria-label="שקופית קודמת"
             >
-              <ChevronLeft className="w-8 h-8" />
+              <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
             </button>
           </div>
 
           {/* Bottom thumbnails/dots */}
-          <div className="p-4 flex justify-center gap-2 flex-wrap">
+          <div className="p-3 sm:p-4 flex justify-center gap-2 flex-wrap bg-black/50">
             {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={cn(
-                  "w-3 h-3 rounded-full transition-all",
+                  "w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all",
                   index === currentSlide 
                     ? "bg-white scale-125" 
                     : "bg-white/30 hover:bg-white/50"
