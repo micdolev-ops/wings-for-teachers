@@ -73,7 +73,7 @@ const AIPage = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] py-16 md:py-24 flex items-center overflow-hidden">
+      <section className="relative min-h-[50vh] py-16 md:py-24 pt-24 md:pt-36 flex items-center overflow-hidden">
         {/* Video Background */}
         <video 
           autoPlay 
