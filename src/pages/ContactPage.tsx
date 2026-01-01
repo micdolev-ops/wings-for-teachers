@@ -1,4 +1,4 @@
-import { Mail, MessageCircle, Copy } from "lucide-react";
+import { Mail, MessageCircle, Copy, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import ScrollAnimation from "@/components/ScrollAnimation";
@@ -29,9 +29,15 @@ const ContactPage = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
               <span className="gradient-text">צרו קשר</span>
             </h1>
-            <p className="text-muted-foreground text-center text-lg mb-12 max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-center text-lg mb-6 max-w-2xl mx-auto">
               יש לכם שאלה? רוצים לשתף פעולה? אשמח לשמוע מכם!
             </p>
+            <div 
+              className="mb-8 opacity-0 animate-fade-in"
+              style={{ animationDelay: "400ms", animationFillMode: "forwards" }}
+            >
+              <ChevronDown className="w-8 h-8 mx-auto text-primary/70 animate-bounce" />
+            </div>
           </ScrollAnimation>
 
           <ScrollAnimation delay={200}>

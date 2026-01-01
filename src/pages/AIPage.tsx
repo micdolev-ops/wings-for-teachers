@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { Bot, MessageSquare, Lightbulb, AlertCircle, ArrowLeft, Sparkles } from "lucide-react";
+import { Bot, MessageSquare, Lightbulb, AlertCircle, ArrowLeft, Sparkles, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import notebookLmLogo from "@/assets/notebooklm-logo.svg";
@@ -124,6 +124,14 @@ const AIPage = () => {
           >
             למדו לכתוב פרומפטים נכונים ולהכיר את הכלים שישנו את הדרך שלכם להוראה
           </p>
+          
+          {/* Scroll indicator arrow */}
+          <div 
+            className="mt-8 opacity-0 animate-fade-in"
+            style={{ animationDelay: "600ms", animationFillMode: "forwards" }}
+          >
+            <ChevronDown className="w-8 h-8 mx-auto text-secondary/70 animate-bounce" />
+          </div>
         </div>
       </section>
 

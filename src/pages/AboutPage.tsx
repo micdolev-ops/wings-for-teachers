@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import TypewriterText from "@/components/TypewriterText";
 import michalProfile from "@/assets/michal-profile.jpg";
+import { ChevronDown } from "lucide-react";
 const AboutPage = () => {
   return <Layout>
       <section className="relative py-16 md:py-24 min-h-[80vh] overflow-hidden">
@@ -21,9 +22,15 @@ const AboutPage = () => {
         
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <ScrollAnimation>
-            <h1 className="text-4xl md:text-6xl font-handwriting font-bold text-center mb-12">
+            <h1 className="text-4xl md:text-6xl font-handwriting font-bold text-center mb-6">
               <span className="gradient-text">קצת עליי</span>
             </h1>
+            <div 
+              className="mb-8 opacity-0 animate-fade-in"
+              style={{ animationDelay: "400ms", animationFillMode: "forwards" }}
+            >
+              <ChevronDown className="w-8 h-8 mx-auto text-primary/70 animate-bounce" />
+            </div>
           </ScrollAnimation>
 
           <ScrollAnimation delay={200}>

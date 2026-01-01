@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { Sparkles, FileText, Image, Presentation, Award, LayoutGrid, ArrowLeft } from "lucide-react";
+import { Sparkles, FileText, Image, Presentation, Award, LayoutGrid, ArrowLeft, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import canvaLogo from "@/assets/canva-logo.svg";
@@ -110,6 +110,14 @@ const CanvaPage = () => {
         }}>
             גלו את הכלים החדשניים של קאנבה שיעזרו לכם ליצור חומרי לימוד מרהיבים ומעוררי השראה
           </p>
+          
+          {/* Scroll indicator arrow */}
+          <div 
+            className="mt-8 opacity-0 animate-fade-in"
+            style={{ animationDelay: "600ms", animationFillMode: "forwards" }}
+          >
+            <ChevronDown className="w-8 h-8 mx-auto text-primary/70 animate-bounce" />
+          </div>
         </div>
       </section>
 
