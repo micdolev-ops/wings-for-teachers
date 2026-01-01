@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize2, RotateCw, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface SlideViewerProps {
@@ -12,8 +12,46 @@ interface SlideViewerProps {
 const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [rotate180, setRotate180] = useState<number[]>([]);
   const fullscreenRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
+
+  const storageKey = `slideviewer:rotate180:${title ?? "slides"}`;
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          setRotate180(parsed.filter((n) => Number.isFinite(n)) as number[]);
+          return;
+        }
+      }
+    } catch {
+      // ignore
+    }
+
+    setRotate180(rotate180Slides ?? []);
+  }, [storageKey, rotate180Slides]);
+
+  const toggleRotateCurrent = () => {
+    const slideNumber = currentSlide + 1;
+
+    setRotate180((prev) => {
+      const next = prev.includes(slideNumber)
+        ? prev.filter((n) => n !== slideNumber)
+        : [...prev, slideNumber].sort((a, b) => a - b);
+
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(next));
+      } catch {
+        // ignore
+      }
+
+      return next;
+    });
+  };
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -57,7 +95,7 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
 
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStartX.current === null) return;
-    
+
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX.current - touchEndX;
     const threshold = 50;
@@ -89,7 +127,7 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
   };
 
   const shouldRotate = (slideIndex: number) => {
-    return rotate180Slides?.includes(slideIndex + 1);
+    return rotate180.includes(slideIndex + 1);
   };
 
   return (
@@ -141,6 +179,16 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
           >
             <Maximize2 className="w-4 h-4" />
           </button>
+
+          {/* Rotate Button */}
+          <button
+            onClick={toggleRotateCurrent}
+            className="absolute top-2 right-2 p-2 rounded-lg bg-black/50 hover:bg-black/70 text-white transition-colors"
+            aria-label={shouldRotate(currentSlide) ? "בטל סיבוב 180°" : "סובב 180°"}
+            aria-pressed={shouldRotate(currentSlide)}
+          >
+            <RotateCw className="w-4 h-4" />
+          </button>
         </div>
 
         {/* Slide Counter & Dots */}
@@ -181,13 +229,25 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
             <div className="text-white text-sm">
               {currentSlide + 1} / {slides.length}
             </div>
-            <button
-              onClick={() => setIsFullscreen(false)}
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-              aria-label="סגור"
-            >
-              <X className="w-6 h-6" />
-            </button>
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={toggleRotateCurrent}
+                className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                aria-label={shouldRotate(currentSlide) ? "בטל סיבוב 180°" : "סובב 180°"}
+                aria-pressed={shouldRotate(currentSlide)}
+              >
+                <RotateCw className="w-5 h-5" />
+              </button>
+
+              <button
+                onClick={() => setIsFullscreen(false)}
+                className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                aria-label="סגור"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
           </div>
 
           {/* Main slide area - clickable for navigation */}
