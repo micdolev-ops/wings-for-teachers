@@ -39,7 +39,7 @@ const ContactPage = () => {
               {/* Contact Options - Side by Side */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Email Card */}
-                <div className="glass-card rounded-2xl p-6">
+                <div className="glass-card rounded-2xl p-6 hover:shadow-glow transition-all duration-300">
                   <a
                     href={`mailto:${email}`}
                     className="flex items-center gap-4 group"
