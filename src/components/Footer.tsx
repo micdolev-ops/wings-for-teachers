@@ -1,6 +1,7 @@
 import { Heart, Mail, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const Footer = () => {
   return (
@@ -44,7 +45,7 @@ const Footer = () => {
               <Mail className="w-4 h-4" />
             </a>
             <a
-              href="https://api.whatsapp.com/send?phone=972545567227"
+              href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-colors"
