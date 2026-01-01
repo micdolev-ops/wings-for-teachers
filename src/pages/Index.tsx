@@ -1,4 +1,4 @@
-import { Palette, Bot } from "lucide-react";
+import { Palette, Bot, ChevronDown } from "lucide-react";
 import GatewayCard from "@/components/GatewayCard";
 import Layout from "@/components/Layout";
 import TypewriterText from "@/components/TypewriterText";
@@ -56,14 +56,22 @@ const Index = () => {
             className="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full drop-shadow-lg opacity-0 animate-fade-in"
             style={{ animationDelay: "600ms", animationFillMode: "forwards" }}
           />
+          
+          {/* Scroll indicator arrow */}
+          <div 
+            className="mt-6 opacity-0 animate-fade-in"
+            style={{ animationDelay: "900ms", animationFillMode: "forwards" }}
+          >
+            <ChevronDown className="w-8 h-8 mx-auto text-primary/70 animate-bounce" />
+          </div>
         </div>
       </section>
 
       {/* Gateway Cards Section */}
-      <section className="py-4 md:py-6 relative">
+      <section className="pt-2 md:pt-4 pb-8 md:pb-12 relative">
         <div className="container mx-auto px-4 md:px-6">
           {/* Section Title */}
-          <div className="text-center mb-12 md:mb-16">
+          <div className="text-center mb-8 md:mb-12">
             <h2 
               className="text-2xl md:text-3xl font-bold text-foreground mb-3 opacity-0 animate-fade-in"
               style={{ animationDelay: "500ms", animationFillMode: "forwards" }}
