@@ -9,6 +9,8 @@ import SlideViewer from "@/components/SlideViewer";
 
 // NotebookLM presentation slides
 const notebookLmSlides = Array.from({ length: 16 }, (_, i) => `/slides/notebooklm/slide-${i + 1}.jpg`);
+// Rotate the specific pages that are upside down in the exported slide images
+const notebookLmRotate180Slides = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
 interface PlatformCardProps {
   title: string;
@@ -17,10 +19,11 @@ interface PlatformCardProps {
   iconImage?: string;
   youtubeVideoId?: string;
   presentationSlides?: string[];
+  presentationRotate180Slides?: number[];
   delay: number;
 }
 
-const PlatformCard = ({ title, description, icon: Icon, iconImage, youtubeVideoId, presentationSlides, delay }: PlatformCardProps) => {
+const PlatformCard = ({ title, description, icon: Icon, iconImage, youtubeVideoId, presentationSlides, presentationRotate180Slides, delay }: PlatformCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const hasContent = youtubeVideoId || (presentationSlides && presentationSlides.length > 0);
 
@@ -113,7 +116,7 @@ const PlatformCard = ({ title, description, icon: Icon, iconImage, youtubeVideoI
           
           {/* Presentation Slides */}
           {presentationSlides && presentationSlides.length > 0 && (
-            <SlideViewer slides={presentationSlides} title="סיכום הדרכת הווידאו" />
+            <SlideViewer slides={presentationSlides} rotate180Slides={presentationRotate180Slides} title="סיכום הדרכת הווידאו" />
           )}
           
           <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-secondary transition-colors">
@@ -140,6 +143,7 @@ const AIPage = () => {
       iconImage: notebookLmLogo,
       youtubeVideoId: "ElAhV2Qi5sA",
       presentationSlides: notebookLmSlides,
+      presentationRotate180Slides: notebookLmRotate180Slides,
     },
     {
       title: "Gemini",
