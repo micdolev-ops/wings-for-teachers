@@ -32,7 +32,7 @@ const AboutPage = () => {
                 {/* Profile Image */}
                 <div className="shrink-0">
                   <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden ring-4 ring-primary/20 shadow-glow">
-                    <img alt="מיכל אלגרבלי" className="w-full h-full object-cover object-[30%_top] scale-125" src="/lovable-uploads/c307073f-5384-4929-a8c5-fc9cd7b7229c.png" />
+                    <img alt="מיכל אלגרבלי" className="w-full h-full object-cover object-top" src={michalProfile} />
                   </div>
                 </div>
 
