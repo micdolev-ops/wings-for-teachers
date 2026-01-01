@@ -104,46 +104,68 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
       {/* Fullscreen Modal */}
       {isFullscreen && (
         <div 
-          className="fixed inset-0 z-50 bg-black flex items-center justify-center"
+          className="fixed inset-0 z-[9999] bg-black flex flex-col"
           onKeyDown={handleKeyDown}
           tabIndex={0}
+          autoFocus
         >
-          <button
-            onClick={() => setIsFullscreen(false)}
-            className="absolute top-4 right-4 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-10"
-            aria-label="סגור"
-          >
-            <X className="w-6 h-6" />
-          </button>
+          {/* Top bar */}
+          <div className="flex items-center justify-between p-4">
+            <div className="text-white text-sm">
+              {currentSlide + 1} / {slides.length}
+            </div>
+            <button
+              onClick={() => setIsFullscreen(false)}
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+              aria-label="סגור"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
 
-          <img
-            src={slides[currentSlide]}
-            alt={`שקופית ${currentSlide + 1}`}
-            className={cn(
-              "max-w-full max-h-full object-contain",
-              rotate180Slides?.includes(currentSlide + 1) && "rotate-180"
-            )}
-          />
+          {/* Main slide area */}
+          <div className="flex-1 flex items-center justify-center px-16 pb-8 relative">
+            <img
+              src={slides[currentSlide]}
+              alt={`שקופית ${currentSlide + 1}`}
+              className={cn(
+                "max-w-full max-h-full object-contain",
+                rotate180Slides?.includes(currentSlide + 1) && "rotate-180"
+              )}
+            />
 
-          {/* Navigation in Fullscreen */}
-          <button
-            onClick={prevSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-            aria-label="שקופית הבאה"
-          >
-            <ChevronRight className="w-8 h-8" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-            aria-label="שקופית קודמת"
-          >
-            <ChevronLeft className="w-8 h-8" />
-          </button>
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 hover:bg-white/30 text-white transition-colors"
+              aria-label="שקופית הבאה"
+            >
+              <ChevronRight className="w-8 h-8" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 hover:bg-white/30 text-white transition-colors"
+              aria-label="שקופית קודמת"
+            >
+              <ChevronLeft className="w-8 h-8" />
+            </button>
+          </div>
 
-          {/* Counter in Fullscreen */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-white/10 text-white text-sm">
-            {currentSlide + 1} / {slides.length}
+          {/* Bottom thumbnails/dots */}
+          <div className="p-4 flex justify-center gap-2 flex-wrap">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={cn(
+                  "w-3 h-3 rounded-full transition-all",
+                  index === currentSlide 
+                    ? "bg-white scale-125" 
+                    : "bg-white/30 hover:bg-white/50"
+                )}
+                aria-label={`עבור לשקופית ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       )}
