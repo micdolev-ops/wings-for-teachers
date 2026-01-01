@@ -10,7 +10,7 @@ import SlideViewer from "@/components/SlideViewer";
 // NotebookLM presentation slides
 const notebookLmSlides = Array.from({ length: 16 }, (_, i) => `/slides/notebooklm/slide-${i + 1}.jpg`);
 // Rotate the specific pages that are upside down in the exported slide images
-const notebookLmRotate180Slides = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+const notebookLmRotate180Slides = [4, 6, 9, 10, 12];
 
 interface PlatformCardProps {
   title: string;
@@ -290,6 +290,7 @@ const AIPage = () => {
                 iconImage={platform.iconImage}
                 youtubeVideoId={platform.youtubeVideoId}
                 presentationSlides={platform.presentationSlides}
+                presentationRotate180Slides={platform.presentationRotate180Slides}
                 delay={1200 + index * 150}
               />
             ))}
