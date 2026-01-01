@@ -80,13 +80,13 @@ const AIPage = () => {
           loop 
           muted 
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
         >
           <source src="/videos/ai-bg.mp4" type="video/mp4" />
         </video>
         
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background" />
         
         {/* Decorative background */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
