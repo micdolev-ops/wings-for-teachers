@@ -2,7 +2,7 @@ import { Palette, Bot } from "lucide-react";
 import GatewayCard from "@/components/GatewayCard";
 import Layout from "@/components/Layout";
 import TypewriterText from "@/components/TypewriterText";
-import logoWithBg from "@/assets/logo-with-bg.png";
+import logo from "@/assets/logo.png";
 
 const Index = () => {
   return (
@@ -31,10 +31,10 @@ const Index = () => {
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
           <h1
-            className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 opacity-0 animate-fade-in"
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 opacity-0 animate-fade-in"
             style={{ animationDelay: "150ms", animationFillMode: "forwards" }}
           >
-            <span className="gradient-text">בינה יתרה</span>
+            <span className="gradient-text">מחשבה יוצרת מציאות</span>
           </h1>
           
           <p 
@@ -51,8 +51,8 @@ const Index = () => {
           
           {/* Logo */}
           <img 
-            src={logoWithBg} 
-            alt="בינה יתרה לוגו" 
+            src={logo} 
+            alt="מחשבה יוצרת מציאות לוגו" 
             className="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full drop-shadow-lg opacity-0 animate-fade-in"
             style={{ animationDelay: "600ms", animationFillMode: "forwards" }}
           />
@@ -108,7 +108,7 @@ const Index = () => {
               className="text-2xl md:text-3xl font-bold text-foreground mb-6 opacity-0 animate-fade-in"
               style={{ animationDelay: "1100ms", animationFillMode: "forwards" }}
             >
-              למה בינה יתרה?
+              למה מחשבה יוצרת מציאות?
             </h2>
             
             <div className="grid md:grid-cols-3 gap-8 mt-12">
