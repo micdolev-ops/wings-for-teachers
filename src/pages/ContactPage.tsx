@@ -1,8 +1,8 @@
-import { Mail, MessageCircle, Copy, ChevronDown } from "lucide-react";
+import { Mail, MessageCircle, Copy, ChevronDown, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import ScrollAnimation from "@/components/ScrollAnimation";
-import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { getWhatsAppUrl, WHATSAPP_PHONE } from "@/lib/whatsapp";
 
 const ContactPage = () => {
   const email = "micdolev@gmail.com";
@@ -76,20 +76,48 @@ const ContactPage = () => {
                   </div>
                 </div>
 
-                <a
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="glass-card rounded-2xl p-6 flex items-center gap-4 group hover:shadow-glow transition-all duration-300"
-                >
-                  <div className="w-14 h-14 rounded-xl bg-[hsl(142,70%,45%)] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <MessageCircle className="w-6 h-6 text-primary-foreground" />
+                {/* WhatsApp Card */}
+                <div className="glass-card rounded-2xl p-6 hover:shadow-glow transition-all duration-300">
+                  <a
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 group"
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-[hsl(142,70%,45%)] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                      <MessageCircle className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                    <div className="text-right">
+                      <h3 className="font-bold text-foreground mb-1">וואטסאפ</h3>
+                      <p className="text-muted-foreground text-sm">{WHATSAPP_PHONE.replace("972", "0")}</p>
+                    </div>
+                  </a>
+                  <div className="flex gap-2 mt-4 justify-end">
+                    <button
+                      onClick={async () => {
+                        try {
+                          await navigator.clipboard.writeText(WHATSAPP_PHONE.replace("972", "0"));
+                          toast.success("המספר הועתק!");
+                        } catch {
+                          toast.error("לא הצלחנו להעתיק");
+                        }
+                      }}
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-lg bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <Copy className="w-3.5 h-3.5" />
+                      העתק
+                    </button>
+                    <a
+                      href={getWhatsAppUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-lg bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-white transition-colors"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      פתח
+                    </a>
                   </div>
-                  <div className="text-right">
-                    <h3 className="font-bold text-foreground mb-1">וואטסאפ</h3>
-                    <p className="text-muted-foreground text-sm">שלחו הודעה ישירה</p>
-                  </div>
-                </a>
+                </div>
               </div>
             </div>
           </ScrollAnimation>
