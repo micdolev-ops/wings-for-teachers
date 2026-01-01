@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
-import logoWithBg from "@/assets/logo-with-bg.png";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,8 +22,9 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex h-24 md:h-32 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
-            <span className="text-2xl md:text-3xl font-bold gradient-text">בינה יתרה</span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img src={logo} alt="מחשבה יוצרת מציאות" className="w-12 h-12 md:w-14 md:h-14 rounded-full" />
+            <span className="text-xl md:text-2xl font-bold gradient-text">מחשבה יוצרת מציאות</span>
           </Link>
 
           {/* Desktop Navigation */}

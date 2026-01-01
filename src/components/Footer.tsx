@@ -1,5 +1,6 @@
-import { Sparkles, Heart, Mail, MessageCircle } from "lucide-react";
+import { Heart, Mail, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -9,10 +10,8 @@ const Footer = () => {
           {/* Logo & Tagline */}
           <div className="flex flex-col items-center md:items-start gap-2">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="flex items-center justify-center w-8 h-8 rounded-lg gradient-primary">
-                <Sparkles className="w-4 h-4 text-primary-foreground" />
-              </div>
-              <span className="text-lg font-bold gradient-text">בינה יתרה</span>
+              <img src={logo} alt="מחשבה יוצרת מציאות" className="w-8 h-8 rounded-full" />
+              <span className="text-lg font-bold gradient-text">מחשבה יוצרת מציאות</span>
             </Link>
             <p className="text-sm text-muted-foreground text-center md:text-right">
               טכנולוגיה טובה לא מחליפה מורים, היא מעניקה להם כנפיים.
