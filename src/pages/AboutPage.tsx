@@ -45,15 +45,15 @@ const AboutPage = () => {
 
                 {/* Bio Text */}
                 <div className="text-center md:text-right flex-1">
-                  <h2 className="text-3xl md:text-4xl font-handwriting font-bold text-foreground mb-0 leading-none">
+                  <div className="text-3xl md:text-4xl font-handwriting font-bold text-foreground mb-0 leading-none" dir="rtl">
                     <TypewriterText text="נעים מאוד," speed={100} delay={300} showCursor={false} />
-                  </h2>
-                  <h2 className="text-3xl md:text-4xl font-handwriting font-bold text-foreground mb-0 leading-none">
-                    <TypewriterText text="אני" speed={100} delay={1500} showCursor={false} />
-                  </h2>
-                  <h2 className="text-3xl md:text-4xl font-handwriting font-bold gradient-text mb-4 leading-none">
-                    <TypewriterText text="מיכל אלגרבלי" speed={100} delay={2000} showCursor={true} />
-                  </h2>
+                  </div>
+                  <div className="text-3xl md:text-4xl font-handwriting font-bold text-foreground mb-0 leading-none" dir="rtl">
+                    <TypewriterText text="אני" speed={100} delay={1200} showCursor={false} />
+                  </div>
+                  <div className="text-3xl md:text-4xl font-handwriting font-bold gradient-text mb-4 leading-none" dir="rtl">
+                    <TypewriterText text="מיכל אלגרבלי" speed={100} delay={1500} showCursor={true} />
+                  </div>
                   <div className="space-y-5 text-muted-foreground leading-relaxed">
                     <p>
                       מלווה מורים במסע אל עולם של יצירתיות, טכנולוגיה והוראה משמעותית. לאורך השנים לימדתי תלמידים, הדרכתי סטודנטים, וכיום אני מתמקדת בהנחיית השתלמויות ביישומי Canva ובכלי בינה מלאכותית (AI) להוראה.
