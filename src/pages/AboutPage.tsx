@@ -22,20 +22,20 @@ const AboutPage = () => {
         
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <ScrollAnimation>
-            <h1 className="text-4xl md:text-6xl font-handwriting font-bold text-center mb-6">
+            <h1 className="text-4xl md:text-6xl font-handwriting font-bold text-center mb-1">
               <span className="gradient-text">קצת עליי</span>
             </h1>
             <div 
-              className="mb-2 opacity-0 animate-fade-in"
+              className="mb-0 opacity-0 animate-fade-in"
               style={{ animationDelay: "400ms", animationFillMode: "forwards" }}
             >
               <ChevronDown className="w-8 h-8 mx-auto text-primary/70 animate-bounce" />
             </div>
           </ScrollAnimation>
 
-          <ScrollAnimation delay={200}>
+          <ScrollAnimation delay={200} className="-mt-4 md:-mt-6">
             <div className="max-w-4xl mx-auto">
-              <div className="glass-card rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+              <div className="glass-card rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
                 {/* Profile Image */}
                 <div className="shrink-0">
                   <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden ring-4 ring-primary/20 shadow-glow">
@@ -45,13 +45,13 @@ const AboutPage = () => {
 
                 {/* Bio Text */}
                 <div className="text-center md:text-right flex-1">
-                  <h2 className="text-4xl md:text-5xl font-handwriting font-bold text-foreground mb-1">
+                  <h2 className="text-3xl md:text-4xl font-handwriting font-bold text-foreground mb-0 leading-none">
                     <TypewriterText text="נעים מאוד," speed={100} delay={300} showCursor={false} />
                   </h2>
-                  <h2 className="text-4xl md:text-5xl font-handwriting font-bold text-foreground mb-2">
+                  <h2 className="text-3xl md:text-4xl font-handwriting font-bold text-foreground mb-0 leading-none">
                     <TypewriterText text="אני" speed={100} delay={1500} showCursor={false} />
                   </h2>
-                  <h2 className="text-4xl md:text-5xl font-handwriting font-bold gradient-text mb-6">
+                  <h2 className="text-3xl md:text-4xl font-handwriting font-bold gradient-text mb-4 leading-none">
                     <TypewriterText text="מיכל אלגרבלי" speed={100} delay={2000} showCursor={true} />
                   </h2>
                   <div className="space-y-5 text-muted-foreground leading-relaxed">
