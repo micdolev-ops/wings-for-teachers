@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import notebookLmLogo from "@/assets/notebooklm-logo.svg";
 import geminiLogo from "@/assets/gemini-logo.svg";
+import SlideViewer from "@/components/SlideViewer";
+
+// NotebookLM presentation slides
+const notebookLmSlides = Array.from({ length: 16 }, (_, i) => `/slides/notebooklm/slide-${i + 1}.jpg`);
 
 interface PlatformCardProps {
   title: string;
@@ -11,10 +15,11 @@ interface PlatformCardProps {
   icon?: React.ElementType;
   iconImage?: string;
   youtubeVideoId?: string;
+  presentationSlides?: string[];
   delay: number;
 }
 
-const PlatformCard = ({ title, description, icon: Icon, iconImage, youtubeVideoId, delay }: PlatformCardProps) => (
+const PlatformCard = ({ title, description, icon: Icon, iconImage, youtubeVideoId, presentationSlides, delay }: PlatformCardProps) => (
   <div
     className={cn(
       "group relative p-8 rounded-2xl",
@@ -46,16 +51,26 @@ const PlatformCard = ({ title, description, icon: Icon, iconImage, youtubeVideoI
       
       {/* YouTube Video Embed */}
       {youtubeVideoId && (
-        <div className="mt-6 rounded-xl overflow-hidden shadow-lg">
-          <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src={`https://www.youtube.com/embed/${youtubeVideoId}`}
-              title={`${title} video`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+        <div className="mt-6">
+          <h4 className="text-sm font-medium text-foreground mb-2 px-1">מדריך לעבודה ב-NotebookLM · ד״ר לימור ליבוביץ</h4>
+          <div className="rounded-xl overflow-hidden shadow-lg">
+            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+                title={`${title} video`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </div>
+        </div>
+      )}
+      
+      {/* Presentation Slides */}
+      {presentationSlides && presentationSlides.length > 0 && (
+        <div className="mt-6">
+          <SlideViewer slides={presentationSlides} title="סיכום הדרכת הווידאו" />
         </div>
       )}
       
@@ -80,6 +95,7 @@ const AIPage = () => {
       description: "כלי מחקר ולמידה מבוסס AI של גוגל שמאפשר לנתח מסמכים וליצור תוכן חכם",
       iconImage: notebookLmLogo,
       youtubeVideoId: "ElAhV2Qi5sA",
+      presentationSlides: notebookLmSlides,
     },
     {
       title: "Gemini",
@@ -225,6 +241,7 @@ const AIPage = () => {
                 description={platform.description}
                 iconImage={platform.iconImage}
                 youtubeVideoId={platform.youtubeVideoId}
+                presentationSlides={platform.presentationSlides}
                 delay={1200 + index * 150}
               />
             ))}
