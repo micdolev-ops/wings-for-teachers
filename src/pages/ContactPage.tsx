@@ -2,6 +2,7 @@ import { Mail, MessageCircle, Copy, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import ScrollAnimation from "@/components/ScrollAnimation";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const ContactPage = () => {
   const email = "micdolev@gmail.com";
@@ -76,7 +77,7 @@ const ContactPage = () => {
                 </div>
 
                 <a
-                  href="https://api.whatsapp.com/send?phone=972545567227"
+                  href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card rounded-2xl p-6 flex items-center gap-4 group hover:shadow-glow transition-all duration-300"
