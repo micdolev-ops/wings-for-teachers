@@ -224,6 +224,7 @@ const AIPage = () => {
                 title={platform.title}
                 description={platform.description}
                 iconImage={platform.iconImage}
+                youtubeVideoId={platform.youtubeVideoId}
                 delay={1200 + index * 150}
               />
             ))}
