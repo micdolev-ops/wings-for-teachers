@@ -26,7 +26,7 @@ const AboutPage = () => {
               <span className="gradient-text">קצת עליי</span>
             </h1>
             <div 
-              className="mb-8 opacity-0 animate-fade-in"
+              className="mb-2 opacity-0 animate-fade-in"
               style={{ animationDelay: "400ms", animationFillMode: "forwards" }}
             >
               <ChevronDown className="w-8 h-8 mx-auto text-primary/70 animate-bounce" />
