@@ -71,24 +71,26 @@ const CanvaPage = () => {
           <source src="/videos/canva-bg.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+        
+        {/* Breadcrumb on video */}
+        <div className="absolute top-6 right-6 z-10">
+          <Link to="/" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors opacity-0 animate-fade-in" style={{
+            animationDelay: "100ms",
+            animationFillMode: "forwards"
+          }}>
+            <ArrowLeft className="w-4 h-4" />
+            <span>חזרה לדף הבית</span>
+          </Link>
+        </div>
       </section>
 
       {/* Hero Content Section */}
-      <section className="py-12 md:py-16 relative">
+      <section className="py-4 md:py-6 relative">
         {/* Decorative background */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          {/* Breadcrumb */}
-          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 opacity-0 animate-fade-in" style={{
-          animationDelay: "100ms",
-          animationFillMode: "forwards"
-        }}>
-            <ArrowLeft className="w-4 h-4" />
-            <span>חזרה לדף הבית</span>
-          </Link>
-
           <div className="flex items-center gap-4 mb-6">
             <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow shadow-glow opacity-0 animate-scale-in" style={{
             animationDelay: "200ms",
