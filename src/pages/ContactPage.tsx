@@ -1,7 +1,6 @@
 import { Mail, MessageCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import ScrollAnimation from "@/components/ScrollAnimation";
-import michalProfile from "@/assets/michal-profile.jpg";
 
 const ContactPage = () => {
   return (
@@ -18,22 +17,9 @@ const ContactPage = () => {
           </ScrollAnimation>
 
           <ScrollAnimation delay={200}>
-            <div className="max-w-md mx-auto">
-              {/* Profile Card */}
-              <div className="glass-card rounded-3xl p-8 text-center mb-8">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-primary/20 shadow-glow">
-                  <img
-                    src={michalProfile}
-                    alt="מיכל אלגרבלי"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                <h2 className="text-2xl font-bold text-foreground mb-2">מיכל אלגרבלי</h2>
-                <p className="text-muted-foreground">יוצרת התוכן של "מחשבה יוצרת מציאות"</p>
-              </div>
-
-              {/* Contact Options */}
-              <div className="grid gap-4">
+            <div className="max-w-2xl mx-auto">
+              {/* Contact Options - Side by Side */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <a
                   href="mailto:micdolev@gmail.com"
                   className="glass-card rounded-2xl p-6 flex items-center gap-4 group hover:shadow-glow transition-all duration-300"
