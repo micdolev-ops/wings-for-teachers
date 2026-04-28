@@ -13,8 +13,19 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [rotate180, setRotate180] = useState<number[]>([]);
+  const [direction, setDirection] = useState<"next" | "prev">("next");
+  const [animKey, setAnimKey] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const fullscreenRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(mq.matches);
+    update();
+    mq.addEventListener?.("change", update);
+    return () => mq.removeEventListener?.("change", update);
+  }, []);
 
   const storageKey = `slideviewer:rotate180:${title ?? "slides"}`;
 
