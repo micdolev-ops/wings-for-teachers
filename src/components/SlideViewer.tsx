@@ -168,11 +168,13 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
         {/* Slide Container */}
         <div className="relative aspect-[16/9] bg-black">
           <img
+            key={animKey}
             src={slides[currentSlide]}
             alt={`שקופית ${currentSlide + 1}`}
             className={cn(
               "w-full h-full object-contain",
-              shouldRotate(currentSlide) && "rotate-180"
+              shouldRotate(currentSlide) && "rotate-180",
+              !reducedMotion && (direction === "next" ? "animate-slide-fade-next" : "animate-slide-fade-prev")
             )}
           />
 
