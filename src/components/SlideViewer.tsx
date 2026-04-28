@@ -223,7 +223,7 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
             {slides.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => goToSlide(index)}
                 className={cn(
                   "w-2 h-2 rounded-full transition-colors",
                   index === currentSlide 
