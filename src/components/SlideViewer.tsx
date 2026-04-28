@@ -65,11 +65,21 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
   };
 
   const nextSlide = () => {
+    setDirection("next");
+    setAnimKey((k) => k + 1);
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
   const prevSlide = () => {
+    setDirection("prev");
+    setAnimKey((k) => k + 1);
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setDirection(index > currentSlide ? "next" : "prev");
+    setAnimKey((k) => k + 1);
+    setCurrentSlide(index);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
