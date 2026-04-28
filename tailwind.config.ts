@@ -108,6 +108,14 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0" },
         },
+        "slide-fade-in-next": {
+          "0%": { opacity: "0", transform: "translateX(-24px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        "slide-fade-in-prev": {
+          "0%": { opacity: "0", transform: "translateX(24px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -119,6 +127,8 @@ export default {
         "pulse-soft": "pulse-soft 2s ease-in-out infinite",
         "shimmer": "shimmer 2s linear infinite",
         "blink": "blink 1s step-end infinite",
+        "slide-fade-next": "slide-fade-in-next 0.35s ease-out",
+        "slide-fade-prev": "slide-fade-in-prev 0.35s ease-out",
       },
     },
   },
