@@ -13,8 +13,19 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [rotate180, setRotate180] = useState<number[]>([]);
+  const [direction, setDirection] = useState<"next" | "prev">("next");
+  const [animKey, setAnimKey] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const fullscreenRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(mq.matches);
+    update();
+    mq.addEventListener?.("change", update);
+    return () => mq.removeEventListener?.("change", update);
+  }, []);
 
   const storageKey = `slideviewer:rotate180:${title ?? "slides"}`;
 
@@ -54,11 +65,21 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
   };
 
   const nextSlide = () => {
+    setDirection("next");
+    setAnimKey((k) => k + 1);
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
   const prevSlide = () => {
+    setDirection("prev");
+    setAnimKey((k) => k + 1);
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setDirection(index > currentSlide ? "next" : "prev");
+    setAnimKey((k) => k + 1);
+    setCurrentSlide(index);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -147,11 +168,13 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
         {/* Slide Container */}
         <div className="relative aspect-[16/9] bg-black">
           <img
+            key={animKey}
             src={slides[currentSlide]}
             alt={`שקופית ${currentSlide + 1}`}
             className={cn(
               "w-full h-full object-contain",
-              shouldRotate(currentSlide) && "rotate-180"
+              shouldRotate(currentSlide) && "rotate-180",
+              !reducedMotion && (direction === "next" ? "animate-slide-fade-next" : "animate-slide-fade-prev")
             )}
           />
 
@@ -200,7 +223,7 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
             {slides.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => goToSlide(index)}
                 className={cn(
                   "w-2 h-2 rounded-full transition-colors",
                   index === currentSlide 
@@ -258,11 +281,13 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
             {/* White background wrapper for the slide */}
             <div className="bg-white rounded-lg shadow-2xl max-w-full max-h-full overflow-hidden">
               <img
+                key={animKey}
                 src={slides[currentSlide]}
                 alt={`שקופית ${currentSlide + 1}`}
                 className={cn(
                   "max-w-full max-h-[calc(100vh-160px)] object-contain",
-                  shouldRotate(currentSlide) && "rotate-180"
+                  shouldRotate(currentSlide) && "rotate-180",
+                  !reducedMotion && (direction === "next" ? "animate-slide-fade-next" : "animate-slide-fade-prev")
                 )}
               />
             </div>
@@ -289,7 +314,7 @@ const SlideViewer = ({ slides, title, rotate180Slides }: SlideViewerProps) => {
             {slides.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => goToSlide(index)}
                 className={cn(
                   "w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all",
                   index === currentSlide 
