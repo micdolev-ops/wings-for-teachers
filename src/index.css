@@ -2,161 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* מחשבה יוצרת מציאות - Design System
-   Warm, modern, inspiring educational platform
-   All colors in HSL format
-*/
-
 @layer base {
   :root {
-    /* Core backgrounds - Eggplant purple theme */
     --background: 280 38% 24%;
     --foreground: 210 40% 98%;
-
-    /* Cards & surfaces */
     --card: 280 36% 30%;
     --card-foreground: 210 40% 98%;
-
     --popover: 280 38% 28%;
     --popover-foreground: 210 40% 98%;
-
-    /* Primary: Teal/Cyan */
     --primary: 175 70% 45%;
     --primary-foreground: 240 40% 8%;
     --primary-glow: 175 70% 60%;
-
-    /* Secondary: Deep purple/violet */
     --secondary: 270 60% 55%;
     --secondary-foreground: 0 0% 100%;
     --secondary-glow: 270 60% 70%;
-
-    /* Muted surfaces */
     --muted: 280 30% 32%;
     --muted-foreground: 210 20% 76%;
-
-    /* Accent: Vibrant purple-pink */
     --accent: 280 70% 60%;
     --accent-foreground: 0 0% 100%;
-
-    /* Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-
-    /* Borders & inputs */
     --border: 280 28% 40%;
     --input: 280 28% 40%;
     --ring: 175 70% 45%;
-
     --radius: 1rem;
-
-    /* Custom gradients - AI inspired */
     --gradient-primary: linear-gradient(135deg, hsl(175, 70%, 45%), hsl(200, 70%, 50%));
-    --gradient-secondary: linear-gradient(135deg, hsl(270, 60%, 55%), hsl(300, 60%, 55%));
-    --gradient-hero: linear-gradient(180deg, hsl(280, 40%, 19%) 0%, hsl(285, 40%, 26%) 50%, hsl(280, 40%, 22%) 100%);
-    --gradient-card-canva: linear-gradient(145deg, hsl(175, 50%, 20%), hsl(180, 40%, 15%));
-    --gradient-card-ai: linear-gradient(145deg, hsl(270, 50%, 25%), hsl(280, 40%, 18%));
-
-    /* Shadows */
     --shadow-soft: 0 4px 20px -4px hsl(175 70% 50% / 0.2);
     --shadow-glow: 0 8px 40px -8px hsl(175 70% 50% / 0.3);
     --shadow-card: 0 10px 40px -10px hsl(280 45% 10% / 0.35);
-
-    /* Sidebar */
-    --sidebar-background: 280 38% 24%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 175 70% 45%;
-    --sidebar-primary-foreground: 280 40% 22%;
-    --sidebar-accent: 280 30% 32%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 280 28% 40%;
-    --sidebar-ring: 175 70% 45%;
-  }
-
-  /* Dark mode is now the default - keeping this for potential light mode toggle */
-  .light {
-    --background: 0 0% 100%;
-    --foreground: 240 40% 10%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 240 40% 10%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 40% 10%;
-
-    --primary: 175 70% 40%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 175 70% 55%;
-
-    --secondary: 270 60% 50%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 210 20% 96%;
-    --muted-foreground: 210 20% 40%;
-
-    --accent: 280 70% 55%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 210 20% 90%;
-    --input: 210 20% 90%;
-    --ring: 175 70% 40%;
-
-    --sidebar-background: 210 20% 98%;
-    --sidebar-foreground: 240 40% 10%;
-    --sidebar-primary: 175 70% 40%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 20% 94%;
-    --sidebar-accent-foreground: 240 40% 10%;
-    --sidebar-border: 210 20% 90%;
-    --sidebar-ring: 175 70% 40%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
-  html {
-    direction: rtl;
-  }
-
-  body {
-    @apply bg-background text-foreground font-assistant antialiased;
-  }
+  * { @apply border-border; }
+  html { direction: rtl; }
+  body { @apply bg-background text-foreground font-assistant antialiased; }
 }
 
 @layer utilities {
-  .gradient-primary {
-    background: var(--gradient-primary);
-  }
-
-  .gradient-secondary {
-    background: var(--gradient-secondary);
-  }
-
-  .gradient-subtle {
-    background: var(--gradient-subtle);
-  }
-
+  .gradient-primary { background: var(--gradient-primary); }
   .gradient-text {
     background: linear-gradient(135deg, hsl(185, 80%, 55%), hsl(270, 70%, 60%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-  .shadow-soft {
-    box-shadow: var(--shadow-soft);
-  }
-
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
-  }
-
-  .shadow-card {
-    box-shadow: var(--shadow-card);
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .glass-card {
+    background: hsl(280 38% 28% / 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(280 28% 50% / 0.3);
   }
 }
